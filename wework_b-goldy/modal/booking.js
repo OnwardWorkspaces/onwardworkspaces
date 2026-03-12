@@ -1,0 +1,35 @@
+var mongoose = require("mongoose"),
+    dataTypes = require("../services/dataTypes/mongodb");
+var blogSchema = new mongoose.Schema({
+    name: { type: String, default: '' },
+    phone: { type: String, default: '' },
+    hPhone: { type: String, default: '' },
+    email: { type: String, default: '' },
+    address: { type: String, default: '' },
+    dob: { type: String, default: '' },
+    dietary: { type: String, default: '' },
+    covid: { type: Boolean, default: true },
+    isCorrEmail: { type: Boolean, default: true },
+    isCorrTele: { type: Boolean, default: true },
+    isCorrPost: { type: Boolean, default: true },
+    medication: { type: String, default: '' },
+    tourId: { type: dataTypes.ObjectId },
+    eName: { type: String, default: '' },
+    eRelation: { type: String, default: '' },
+    ePhone: { type: String, default: '' },
+    eHPhone: { type: String, default: '' },
+    eEmail: { type: String, default: '' },
+    eAddress: { type: String, default: '' },
+    insurancePolicyNo: { type: String, default: '' },
+    eContactNo: { type: String, default: '' },
+    isSingleRoom: { type: Boolean, default: true },
+    isFlight: { type: Boolean, default: true },
+    isPaid: { type: Boolean, default: false },
+    isActive: { type: Boolean, default: true },
+    isDeleted: { type: Boolean, default: false },
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now },
+});
+
+// userSchema.plugin(passportLocalMongoose);
+module.exports = mongoose.model("bookings", blogSchema);

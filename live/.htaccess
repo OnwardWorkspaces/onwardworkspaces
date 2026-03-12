@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+Redirect 301 /okhla-phase3.php https://onwardworkspaces.com/coworking-space-in-delhi/okhla-phase-3
+Redirect 301 /mohanestate.php https://onwardworkspaces.com/delhi/mohan-estate
+Redirect 301 /about.php https://onwardworkspaces.com/about
+Redirect 301 /okhla.php https://onwardworkspaces.com/delhi/okhla-phase-2
+Redirect 301 /services.php https://onwardworkspaces.com/our-solutions
+Redirect 301 /noida.php https://onwardworkspaces.com/noida
+Redirect 301 /contact-us.php https://onwardworkspaces.com/contact
+Redirect 301 /coworking-space-delhi.php https://onwardworkspaces.com/delhi
+Redirect 301 /how-meeting-room-drives-innovation-and-brainstorming-sessions.php https://onwardworkspaces.com/blog/how-meeting-room-drives-innovation-and-brainstorming-sessions
+Redirect 301 /tips-and-tricks-to-rent-a-coworking-space-in-delhi.php https://onwardworkspaces.com/blog/tips-and-tricks-to-rent-a-coworking-space-in-delhi
+Redirect 301 /elevate-your-workday-with-the-best-coworking-spaces.php https://onwardworkspaces.com/blog/elevate-your-workday-with-the-best-coworking-spaces
+Redirect 301 /find-your-ideal-coworking-space-in-noida.php https://onwardworkspaces.com/blog/find-your-ideal-coworking-space-in-noida
+Redirect 301 /how-shared-office-spaces-nurtures-startups-in-delhi.php https://onwardworkspaces.com/blog/how-shared-office-spaces-nurtures-startups-in-delhi
+Redirect 301 /finding-focus-and-creativity-in-private-coworking-spaces-in-delhi.php https://onwardworkspaces.com/blog/finding-focus-and-creativity-in-private-coworking-spaces-in-delhi
+

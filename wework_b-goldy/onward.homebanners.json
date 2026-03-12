@@ -1,0 +1,166 @@
+[{
+  "_id": {
+    "$oid": "657975e48236885b34b88c66"
+  },
+  "subTitle": "Coworking - Private Suites - Managed Office",
+  "buttonTitle": "GET STARTED NOW",
+  "image": "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/Home/1708166578336.webp",
+  "isDeleted": false,
+  "title": "Embrace Flexibility, Empower Business, Experience",
+  "createdAt": {
+    "$date": "2023-12-13T09:14:12.722Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-13T09:14:12.722Z"
+  },
+  "__v": 217,
+  "member": 5000,
+  "sqFeet": 175000,
+  "whyOnward": [
+    {
+      "image": "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/Home/1711036771626.svg",
+      "title": "Strategically Positioned",
+      "desc": "Our locations are strategically positioned in vibrant business centers, guaranteeing that you are constantly at the heart of opportunities.",
+      "_id": {
+        "$oid": "65c0aabfd4a57f428b8e22bd"
+      }
+    },
+    {
+      "image": "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/Home/1711037064875.svg",
+      "title": "Culture of Triumph",
+      "desc": "Step into a space where every element is meticulously designed to elevate you to new heights, crafted to empower you on your journey to greatness.",
+      "_id": {
+        "$oid": "65c0aabfd4a57f428b8e22be"
+      }
+    },
+    {
+      "image": "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/Home/1711037064917.svg",
+      "title": "Amenities Beyond Ordinary",
+      "desc": "Immerse yourself in a world of cutting-edge facilities, from futuristic tech to tailor-made workspaces, all designed to amplify your workflow.",
+      "_id": {
+        "$oid": "65c0aabfd4a57f428b8e22bb"
+      }
+    }
+  ],
+  "imgAlt": "Onward Workspaces premium Coworking space",
+  "seo": "<title>Premium Coworking Space near me | Onward Workspaces</title>\n<meta name=\"description\" content=\" Discover productivity & innovation at Onward Workspaces, where modern coworking space redefine the way you work. Join to experience a new era of collaboration.\">\n<meta name=\"keywords\" content=\"coworking space,onward workspace,coworking space near me,shared office space\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:title\" content=\"Premium Coworking Space near me | Onward Workspaces\">\n<meta property=\"og:description\" content=\"Discover productivity & innovation at Onward Workspaces, where modern coworking space redefine the way you work. Join to experience a new era of collaboration.\">\n<meta property=\"og:url\" content=\"https://onwardworkspaces.com\">\n<meta property=\"og:image\" content=\"\">\n<meta name=\"robots\" content=\"index, follow\">\n<link rel=\"canonical\" href=\"https://onwardworkspaces.com\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+  "formId": {
+    "$oid": "65b22d47197a7121ccac540e"
+  },
+  "logo": "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/Home/1717765613973.webp",
+  "header": [
+    {
+      "title": "Home",
+      "isActive": true,
+      "pos": 1,
+      "_id": {
+        "$oid": "65ca05f1966f42167067a770"
+      }
+    },
+    {
+      "title": "About Us",
+      "isActive": true,
+      "pos": 2,
+      "_id": {
+        "$oid": "65ca05f1966f42167067a771"
+      }
+    },
+    {
+      "title": "Location",
+      "isActive": true,
+      "pos": 3,
+      "_id": {
+        "$oid": "65ca05f1966f42167067a772"
+      }
+    },
+    {
+      "title": "Blog",
+      "isActive": true,
+      "pos": 4,
+      "_id": {
+        "$oid": "65ca05f1966f42167067a773"
+      }
+    },
+    {
+      "title": "Our Solutions",
+      "isActive": true,
+      "pos": 5,
+      "_id": {
+        "$oid": "65ca05f1966f42167067a774"
+      }
+    },
+    {
+      "title": "Enterprise",
+      "isActive": true,
+      "pos": 6,
+      "_id": {
+        "$oid": "65ca05f1966f42167067a775"
+      }
+    },
+    {
+      "title": "GET IN TOUCH",
+      "isActive": true,
+      "pos": 7,
+      "_id": {
+        "$oid": "65ca05f1966f42167067a776"
+      }
+    }
+  ],
+  "propHead": "Our Top Locations in Delhi NCR",
+  "propPara": "Begin your path to success with Onward Workspaces in Delhi NCR. Our strategically located facilities ensure unparalleled convenience, accessibility, and excellence for your workspace needs",
+  "connHead": "Discuss your requirements with our expert",
+  "connPara": "Whether you have questions about membership options, need assistance with technical aspects, or want to explore customization possibilities for your workspace, our experts are here to provide you with personalized guidance and solutions.",
+  "whyHead": "Revolutionise Your Workspace.",
+  "whyPara": "Whether you have questions about membership options, need assistance with technical aspects, or want to explore customization possibilities\nfor your workspace, our experts are here to provide you with personalized guidance and solutions",
+  "catHead": "Office Space Solutions",
+  "catPara": "Office space solutions for you and your team can vary depending on the specific needs & preferences. Evaluate each option based on factors such as cost, flexibility, scalability to determine the best suitable solution.",
+  "testiHead": "Trusted by worlds largest companies",
+  "testiPara": "These success stories showcase the real impact of our coworking spaces and services, providing valuable insights into how we can support your business needs & aspirations. ",
+  "galHead": "Explore Our Workspace Gallery",
+  "galPara": "Take the first step into a visual journey and envision yourself as part of our inspiring community ",
+  "cliHead": "Enterprises using onward Workspaces",
+  "cliPara": "Elevate your workspace experience and be part of a movement that redefines success",
+  "clientale": [
+    {
+      "$oid": "65bc8887d4a57f428b8e1d5d"
+    },
+    {
+      "$oid": "65bc89f9d4a57f428b8e1d70"
+    },
+    {
+      "$oid": "65bc8ba5d4a57f428b8e1d9d"
+    },
+    {
+      "$oid": "65bc8c04d4a57f428b8e1dad"
+    },
+    {
+      "$oid": "65bc8cced4a57f428b8e1ddb"
+    },
+    {
+      "$oid": "65bc8d87d4a57f428b8e1def"
+    },
+    {
+      "$oid": "660f2f3db568febd40da1dd3"
+    },
+    {
+      "$oid": "660f323db568febd40da1e66"
+    },
+    {
+      "$oid": "660f3285b568febd40da1e6a"
+    },
+    {
+      "$oid": "660f32beb568febd40da1e6e"
+    },
+    {
+      "$oid": "66ab184cf0445c89cfa2ac57"
+    },
+    {
+      "$oid": "660f31e9b568febd40da1e62"
+    },
+    {
+      "$oid": "660f3191b568febd40da1e5e"
+    }
+  ],
+  "bContent": "<h2 style=\"text-align:start;\">What is a Coworking space?</h2>\n<p style=\"text-align:start;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\">A coworking space is a shared working environment where individuals from diverse backgrounds, professions, and industries come together to work independently or collaboratively. Unlike traditional offices, coworking spaces are characterized by their flexible and open layout, fostering a sense of community, collaboration, and creativity.</span></p>\n<p style=\"text-align:start;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\">In a coworking space, individuals, freelancers, startups, and small businesses can rent desks, private offices, or meeting rooms on a flexible basis, allowing them to work in a professional environment without the overhead costs and long-term commitments associated with leasing traditional office space.</span></p>\n<p style=\"text-align:start;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\">Coworking spaces typically provide amenities such as high-speed internet, office furniture, meeting rooms, printing facilities, and communal areas like kitchens and lounges. Beyond the physical infrastructure, coworking spaces offer intangible benefits such as networking opportunities, knowledge sharing, and a supportive community of like-minded individuals.</span></p>\n<p style=\"text-align:start;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\">The rise of coworking spaces is fueled by the changing nature of work, with more people opting for remote work, freelancing, or entrepreneurship. Coworking spaces cater to these modern workstyles by providing a flexible, collaborative, and inspiring environment where individuals can thrive professionally and personally.</span>&nbsp;</p>\n<h2>Why Choose OnwardWorkspaces?</h2>\n<p style=\"margin-left:0px;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\"><strong>Nestled in the Heart of Delhi</strong>: Picture this – your workspace oasis strategically located amidst the vibrant pulse of Delhi. With easy access to key business districts, transportation hubs, and trendy hotspots, navigating your professional pursuits has never been more exhilarating.</span></p>\n<p style=\"margin-left:0px;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\"><strong>Thriving Community Vibe</strong>: Say goodbye to mundane workdays and hello to a community bursting with energy, creativity, and collaboration. At Onward Workspaces, you're not just a member – you're part of a dynamic tribe of diverse professionals, entrepreneurs, and visionaries. Prepare to be inspired, motivated, and welcomed with open arms into our eclectic family.</span></p>\n<p style=\"margin-left:0px;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\"><strong>Tailored Spaces for Every Journey</strong>: No two journeys are alike, and neither are our workspace solutions. Whether you're a lone wolf freelancer, a burgeoning startup, or a seasoned team on the rise, we have the perfect space to match your unique needs and ambitions. From cozy hot desks to sleek private offices, your dream workspace awaits.</span></p>\n<p style=\"margin-left:0px;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\"><strong>Unleash Your Potential with Premium Amenities</strong>: Step into a world where productivity meets pampering. Our state-of-the-art facilities are designed to ignite your creativity, supercharge your productivity, and indulge your senses. Think lightning-fast internet, plush furnishings, and gourmet coffee on tap – because you deserve nothing less.</span></p>\n<p style=\"margin-left:0px;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\"><strong>Affordable Luxury at Your Fingertips</strong>: Who says luxury has to come with a hefty price tag? At Onward Workspaces, we believe that everyone deserves to work in style without breaking the bank. That's why we offer competitive pricing plans that deliver unbeatable value without compromising on quality or comfort.</span></p>\n<h2 style=\"margin-left:0px;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\">Workspaces Offered by Onward Workspaces</span></h2>\n<p><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\"><strong>FlexiDesk</strong>: For the free-spirited professionals who crave flexibility, our FlexiDesk option provides the ultimate workspace freedom. Grab a hot desk in our vibrant coworking environment whenever inspiration strikes, and enjoy the flexibility to come and go as you please.</span></p>\n<p style=\"margin-left:0px;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\"><strong>Dedicated Desk</strong>: Seeking a sense of ownership and stability in your workspace? Our Dedicated Desk option offers a personalized workstation reserved just for you. Settle into your own ergonomic oasis amidst our bustling coworking community, complete with lockable storage for your peace of mind.</span></p>\n<p style=\"margin-left:0px;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\"><strong>Private Offices</strong>: Elevate your professional presence with a fully furnished private office at Onward Workspaces. Whether you're a small team or a growing startup, our modern offices offer privacy, comfort, and a touch of prestige. Customize your space to reflect your brand identity and enjoy exclusive access to premium amenities.</span></p>\n<p style=\"margin-left:0px;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\"><strong>Meeting Rooms</strong>: Impress clients, host brainstorming sessions, or conduct presentations in style with our state-of-the-art meeting rooms. Equipped with cutting-edge technology and stylish furnishings, our meeting rooms provide the perfect backdrop for productive collaboration and impactful discussions.</span></p>\n<p style=\"margin-left:0px;\"><span style=\"color: rgb(13,13,13);background-color: rgb(255,255,255);font-size: 16px;\"><strong>Virtual Office</strong>: Need a prestigious business address without the physical space? Our Virtual Office solution offers the perfect blend of professionalism and convenience. Benefit from mail handling services, call forwarding, and access to our exclusive business lounges whenever you need to meet clients or network with fellow members.</span>&nbsp;</p>\n",
+  "footerLogo": "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/Home/1723180042463.webp"
+}]

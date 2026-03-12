@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d3055eef.css",
+    "main.js": "/static/js/main.3905db1a.js",
+    "static/js/453.bf354c8f.chunk.js": "/static/js/453.bf354c8f.chunk.js",
+    "static/media/vission.png": "/static/media/vission.cd61bbc763eeb4bc7fa2.png",
+    "static/media/banner-s.png": "/static/media/banner-s.59eeb8cff4e0612b11ba.png",
+    "static/media/about.png": "/static/media/about.39ef63ff9915a1dbfe02.png",
+    "static/media/unsplash_XfC8MMTiEfw.png": "/static/media/unsplash_XfC8MMTiEfw.fef73a7cf76af52531f2.png",
+    "static/media/city-banner.png": "/static/media/city-banner.7941b8e9ea21bade59e3.png",
+    "static/media/404-1.jpg": "/static/media/404-1.2a47b8ea6248475dfb86.jpg",
+    "static/media/maps.png": "/static/media/maps.35d79b79cd0f9b892381.png",
+    "static/media/home-banner.png": "/static/media/home-banner.933f99b54c993908cedd.png",
+    "static/media/form-img.png": "/static/media/form-img.ccd39266021ae0a356ae.png",
+    "static/media/newsletter.png": "/static/media/newsletter.e638cad5c5fd2e4b61cb.png",
+    "static/media/rectangle_166.png": "/static/media/rectangle_166.f98b44b24c410530d152.png",
+    "static/media/item-i.png": "/static/media/item-i.0cbf0905930810210229.png",
+    "static/media/thanku.png": "/static/media/thanku.953cd516d9ddf0195ee2.png",
+    "static/media/listing-banner.png": "/static/media/listing-banner.a287c7935c58c7a584da.png",
+    "static/media/team.png": "/static/media/team.960ecfbe7cd7f50f7f16.png",
+    "static/media/gallery.png": "/static/media/gallery.fb6a965217acb2753aac.png",
+    "static/media/GeorgeTown-Light.ttf": "/static/media/GeorgeTown-Light.2dc5f8776a8600d3b13c.ttf",
+    "static/media/item.png": "/static/media/item.4a6690d278a0874a1e24.png",
+    "static/media/GeorgeTown-Regular.otf": "/static/media/GeorgeTown-Regular.c9bbf5acc4f59085ab0d.otf",
+    "static/media/instagram.png": "/static/media/instagram.9d98d235a4411c1b77d1.png",
+    "static/media/flexibility.svg": "/static/media/flexibility.be3042dee55e6656d5ee7657c24b305c.svg",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/location.svg": "/static/media/location.565571b64b1217a98e974b8a016cd65e.svg",
+    "index.html": "/index.html",
+    "static/media/services.svg": "/static/media/services.11a7901c99bdb12d2e146c50a101a532.svg",
+    "static/media/affordability.svg": "/static/media/affordability.c46ebba6c9779fb2421044bc6dfc5d7d.svg",
+    "static/media/plus-circle.svg": "/static/media/plus-circle.55a5252b5f4d42349e0b.svg",
+    "static/media/minus-circle.svg": "/static/media/minus-circle.1df3b8dc31b2a7c55621.svg",
+    "main.d3055eef.css.map": "/static/css/main.d3055eef.css.map",
+    "main.3905db1a.js.map": "/static/js/main.3905db1a.js.map",
+    "453.bf354c8f.chunk.js.map": "/static/js/453.bf354c8f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d3055eef.css",
+    "static/js/main.3905db1a.js"
+  ]
+}

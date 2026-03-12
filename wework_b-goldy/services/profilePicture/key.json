@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "tume-io-v2",
+  "private_key_id": "6ccc2b88d499716dfb69c20a5f9242002a61b213",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCG5sS0I9eAZA8w\nqZW9jwohjpkb38RSFXYaPk5oM/CTnS1FL/galYrj9RuacekpkTBURWiEy7A6Fg0I\n1nR5f3m7MdopHM2vdRc+jtJXt80TSec+dxAzWBdAN2Ia4HG54Jb9MV1mlf9sf+tE\n5SnhYqdrlFbq1U4Gjg1TNS6DSokLLUlUP9Sq+B6SYpTsfqdelz2CX0dKerQAbiDe\ne0MpWAVFdqeYdN6TbaywdDcDjd7dhzwhXnWiUteqZzD51X8eLLttAJzcFQy4ACRv\nboTMfAJ2dQrSJ7d0BePD2WpzHSdw2YsEFpCZvtv/yG1IrELrrqESd6JSNnyYaucS\nlj/lF2wzAgMBAAECggEAK9Rcgp7GjLt1x/zBXwZTZ1W6XzkTwwugBKTLusVtW7iM\nldchCBogNzJS1po+BDhc+HRYohS/3A+ACqgKzdLiDTUESalHFsO3WqbypndcVPEF\nBeGPTO9JFp8n682Sha73v6nDS+peQ7VIDmlacxUniid3GfNV14FdyPQVeajE3/FN\nCIWez0/j/OSpJORqyT6bl2yHEO7GxEU2aQiFqTYTT4TCKWQ17UbotMzcos9oMZWG\nFBHDGz6Bfh2/h8uj6ykNAKHF4uWSJku2kp/z+Qnza2duKYiEhDN+EA68FOz4uFRy\ntOhb1o14Qa4nGKyGd5jbjOMeA7Yu+6iLAgzYYvbyOQKBgQC6w/zRa1l8tVqW45DY\nu9VEpVsmn6zYnSaMJO6lbFXsBZK2H+7h3E3/b5Cz5gMUdVjx7aBGF0GbfVb8P/od\nPONprqzNd5EzPxuoMX6isczWnPg5u6YDiLuOwjdrF2wd3jlzOcwAPjPPcufVWAV7\nrgvEDtiydwS+UYq8WgmZvpvV5QKBgQC46OKuvdZ/kK3YbuMQDjZOWDYsHoyBSfXC\nElNwknaCKjBEcys2M8Dai+2ChKkcp5Fr28+CI6obdGc+JTGf9K3vgnHigC+U5Wxh\nPB2DqnDjVhGjqp5XIYyAgpEm567/bxie0C5+bsmwkxmk4OsT5W77xXeixL7YgBXj\ncWmlRmMYNwKBgBYCQInBN8Ntb6Z2XLxdri0vu0Ua7fh81G0RcRoHYTy2D2rs6m6t\nUne2gvvgMB66EWg5E3kPBok3RQfm1ieZ5Eaw8eYon/DFEBJK+txbTYNA7jOHfHHQ\nLCIPmw5ArVn7tRNyDSs+KUbaCJ3oiIThprtM8JZfVizDWTEG/zih8KVNAoGAfaro\nxFGIgdHWFI3oC3VdOwmAZ6OrYgLd3zONOaiQmg4KF7sd1wx9OQp4NIfsVukbT+5n\nrM6IQXhu4jFs9ITZ4TkKJSFxNQRnD/5HIMCpUBeijVTbn+PRFVWnSIWUzUy3stdR\ngePRdwvCFeg2W6NGNh4SHLER8xm5xoXBgu2/UykCgYEApFkwGy8jY1xC9YQ1syZq\n6ZNjpHZF/tnncy8tCa7to69zGUJ1dnxITYarzUO9fSZv5ICm2AJAqRSwDhWGtO3B\nVb3uEFJypZb1eGIckXTxMiRlcm5pZedeZHFBLykvkEiax+ggJr5Lt55HXL0oEsru\n6ZrLslK1ZS7HG6LkihU8uCI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "tume-io@tume-io-v2.iam.gserviceaccount.com",
+  "client_id": "116908644106081320599",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tume-io%40tume-io-v2.iam.gserviceaccount.com"
+}
