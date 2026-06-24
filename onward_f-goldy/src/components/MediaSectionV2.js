@@ -5,7 +5,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-export default function MediaSection({ media = [], mediaDesc }) {
+export default function MediaSectionV2({ media = [], mediaDesc }) {
   const paginationRef = useRef(null);
   const swiperRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -30,6 +30,26 @@ export default function MediaSection({ media = [], mediaDesc }) {
   }, [paginationRef.current, swiperRef.current]);
 
   if (!media.length) return null;
+
+
+  const logos = [
+  "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/about/1728361087416.webp",
+  "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/about/1728361087416.webp", 
+  "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/about/1728361087416.webp", 
+  "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/about/1728361087416.webp", 
+  "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/about/1728361087416.webp", 
+  "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/about/1728361087416.webp", 
+  "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/about/1728361087416.webp", 
+  "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/about/1728361087416.webp", 
+  "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/about/1728361087416.webp", 
+   "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/about/1728361087416.webp", 
+  "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/about/1728361087416.webp", 
+  
+   "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/about/1728361087416.webp", 
+  "https://onwardwork.s3.ap-south-1.amazonaws.com/onward/about/1728361087416.webp", 
+  
+
+];
 
   const renderMediaItem = (item, index) => (
     <a
@@ -106,8 +126,10 @@ export default function MediaSection({ media = [], mediaDesc }) {
   );
 
   return (
-    <section className="onward-workspaces-offerings bottom padding-left-right">
-      <div className="workspaces-slider media-vj">
+    <> 
+<section className="onward-workspaces-offerings bottom padding-left-right">
+
+  <div className="workspaces-slider media-vj">
         <div className="heading-title text-center">
           <h4 className="heading workspaces">News & Media</h4>
           <p className="paragraph" style={{ whiteSpace: "pre-line" }}>
@@ -115,10 +137,63 @@ export default function MediaSection({ media = [], mediaDesc }) {
           </p>
         </div>
 
-        <div className="explore-section">
-          {isMobile ? renderSwiper() : media.length <= 4 ? renderGrid() : renderSwiper()}
-        </div>
-      </div>
-    </section>
+  <Swiper
+    modules={[Autoplay]}
+    slidesPerView="auto"
+    spaceBetween={40}
+    loop={true}
+    speed={4000}
+    allowTouchMove={false}
+    autoplay={{
+      delay: 0,
+      disableOnInteraction: false,
+    }}
+    className="logo-swiper"
+  >
+    {[...media, ...media].map((item, index) => (
+      <SwiperSlide key={`media-logo-${index}`} style={{ width: "auto" }}>
+        <a
+          href={item?.url || "#"}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={item?.title || "View Details"}
+        >
+          <img
+            src={item?.image || require("../assets/images/item-i.png")}
+            alt={item?.title || `Media logo ${index + 1}`}
+            className="logo-img"
+          />
+        </a>
+      </SwiperSlide>
+    ))}
+    {[...media, ...media].map((item, index) => (
+      <SwiperSlide key={`media-logo-${index}`} style={{ width: "auto" }}>
+        <a
+          href={item?.url || "#"}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={item?.title || "View Details"}
+        >
+          <img
+            src={item?.image || require("../assets/images/item-i.png")}
+            alt={item?.title || `Media logo ${index + 1}`}
+            className="logo-img"
+          />
+        </a>
+      </SwiperSlide>
+    ))}
+    
+  </Swiper>
+
+
+  </div>
+
+
+</section>
+
+</>
+
+
+
   );
 }

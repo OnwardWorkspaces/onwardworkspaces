@@ -1,3 +1,41 @@
 # https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
-Disallow:
+
+Disallow: /partnerships
+Disallow: /broker
+Disallow: /careers
+Disallow: /Referral
+
+Disallow: /category/managed-office-space
+Disallow: /offices/managed-office-space-in-delhi
+
+Disallow: /category/coworking
+Disallow: /category/virtual-office
+Disallow: /offices/virtual-office-in-delhi
+
+Disallow: /category/private-suites
+Disallow: /category/private-cabins
+Disallow: /category/on-demand
+
+Disallow: /category/managed-office-space-delhi
+Disallow: /category/managed-office-space-noida
+
+Disallow: /offices/meeting-rooms
+
+Disallow: /category/coworking-delhi
+Disallow: /category/coworking-noida
+
+Disallow: /category/virtual-office-delhi
+Disallow: /category/virtual-office-noida
+
+Disallow: /category/private-suites-delhi
+Disallow: /category/private-suites-noida
+
+Disallow: /category/private-cabins-delhi
+Disallow: /category/private-cabins-noida
+
+Disallow: /category/on-demand-delhi
+Disallow: /category/on-demand-noida
+
+Sitemap: https://www.onwardworkspaces.com/sitemap.xml

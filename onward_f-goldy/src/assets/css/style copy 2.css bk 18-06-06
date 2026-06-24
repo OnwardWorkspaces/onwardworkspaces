@@ -144,11 +144,6 @@ body {
     background-color: var(--bg-color2);
 }
 
-
-h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1{
-    font-family: var(--font-m);
-}
-
 .re-card {
     background-color: #fff;
     margin-bottom: 10px;
@@ -518,7 +513,6 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1{
     font-weight: 900;
     line-height: 80px;
     margin-bottom: 20px; 
-    font-family: var(--font-m);
     /* 100% */
 }
 
@@ -614,11 +608,10 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1{
 
 .counter-box ul li h5 {
     color: var(--bg-color);
-    font-family: var(--font);
-    font-family: var(--font-m);
+    font-family: var(--font-family);
     font-size: 36px;
     font-style: normal;
-    font-weight: 700; 
+    font-weight: 700;
     line-height: 46.8px;
     margin-bottom: 0;
     /* 130% */
@@ -685,7 +678,6 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1{
 .slider-item h6 {
     color: var(--bg-color);
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -955,7 +947,6 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1{
 .revo-card-box h4 {
     color: var(--bg-color2);
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-size: 24px;
     font-style: normal;
     font-weight: 800;
@@ -1179,7 +1170,6 @@ display: flex;
 .thumb-image-box .explore-conetn h4 {
     color: var(--bg-color2);
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-size: 32px;
     font-style: normal;
     font-weight: 700;
@@ -1216,7 +1206,6 @@ display: flex;
 .requirement-form h3 {
     color: var(--bg-color);
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -1279,7 +1268,6 @@ display: flex;
 .card_box span {
     color: var(--bg-color);
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-size: 16px;
     font-style: normal;
 
@@ -1634,7 +1622,6 @@ footer hr {
 .inner-banner-form h4 {
     color: var(--bg-color2);
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -1853,7 +1840,6 @@ footer hr {
     box-shadow: none !important;
     color: var(--text-color5) !important;
     font-family: var(--font-family) !important;
-    font-family: var(--font-m) !important;
     font-size: 24px !important;
     font-style: normal;
     font-weight: 600;
@@ -2304,7 +2290,6 @@ footer hr {
     /* margin-bottom: 30px !important; */
     color: var(--bg-color7) !important;
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-style: normal;
     font-weight: 700;
     line-height: 40px;
@@ -2532,7 +2517,6 @@ footer hr {
     font-size: 16px;
     color: #000;
     line-height: 22px;
-    font-family: var(--font-m); 
 }
 
 .inner_thumb_image_box_blog p {
@@ -2838,7 +2822,6 @@ footer hr {
     position: relative;
     font-size: 70px; 
     font-family: var(--font);
-    font-family: var(--font-m);
     color: #000;
     text-align: center;
     display: inline-block;
@@ -2868,7 +2851,6 @@ footer hr {
 .heading-section h5 {
     font-size: 22px; 
     font-family: var(--font-family);
-    font-family: var(--font-m);
     color: #fff;
     text-align: right;
     display: inline-block;
@@ -2940,7 +2922,6 @@ footer hr {
 
 .card-service-details h3 {
     font-family: var(--font-family) !important;
-    font-family: var(--font-m) !important;
 }
 
 .our-service-section .section-divider .child-div:hover {
@@ -3249,7 +3230,6 @@ footer hr {
     position: absolute;
     font-family: var(--font-family);
     color: #e35a3c;
-    font-family: var(--font-m);
 
 }
 
@@ -3316,7 +3296,6 @@ footer hr {
     margin-top: 25px;
     color: white;
     font-family: var(--font);
-    font-family: var(--font-m);
     text-align: center;
 }
 
@@ -4912,9 +4891,4 @@ span[data-testid="react-typed"] {
 
 .pattern-library-v2--home_hero_brand{
     font-size: 64px;
-}
-
-
-.onward-workspaces-offerings h2 {
-    font-family: var(--font-m);
 }

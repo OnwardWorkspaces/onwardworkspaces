@@ -144,11 +144,6 @@ body {
     background-color: var(--bg-color2);
 }
 
-
-h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1{
-    font-family: var(--font-m);
-}
-
 .re-card {
     background-color: #fff;
     margin-bottom: 10px;
@@ -509,7 +504,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1{
     width: 65%;
 }
 
-.banner-content h1{
+.banner-content h1 {
     color: var(--bg-color2);
     text-align: center;
     font-family: var(--font);
@@ -518,11 +513,8 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1{
     font-weight: 900;
     line-height: 80px;
     margin-bottom: 20px; 
-    font-family: var(--font-m);
     /* 100% */
 }
-
-
 
 .banner-content p {
     color: var(--bg-color2);
@@ -614,11 +606,10 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1{
 
 .counter-box ul li h5 {
     color: var(--bg-color);
-    font-family: var(--font);
-    font-family: var(--font-m);
+    font-family: var(--font-family);
     font-size: 36px;
     font-style: normal;
-    font-weight: 700; 
+    font-weight: 700;
     line-height: 46.8px;
     margin-bottom: 0;
     /* 130% */
@@ -685,7 +676,6 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1{
 .slider-item h6 {
     color: var(--bg-color);
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -955,7 +945,6 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1{
 .revo-card-box h4 {
     color: var(--bg-color2);
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-size: 24px;
     font-style: normal;
     font-weight: 800;
@@ -1179,7 +1168,6 @@ display: flex;
 .thumb-image-box .explore-conetn h4 {
     color: var(--bg-color2);
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-size: 32px;
     font-style: normal;
     font-weight: 700;
@@ -1216,7 +1204,6 @@ display: flex;
 .requirement-form h3 {
     color: var(--bg-color);
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -1279,7 +1266,6 @@ display: flex;
 .card_box span {
     color: var(--bg-color);
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-size: 16px;
     font-style: normal;
 
@@ -1634,7 +1620,6 @@ footer hr {
 .inner-banner-form h4 {
     color: var(--bg-color2);
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -1853,7 +1838,6 @@ footer hr {
     box-shadow: none !important;
     color: var(--text-color5) !important;
     font-family: var(--font-family) !important;
-    font-family: var(--font-m) !important;
     font-size: 24px !important;
     font-style: normal;
     font-weight: 600;
@@ -2304,7 +2288,6 @@ footer hr {
     /* margin-bottom: 30px !important; */
     color: var(--bg-color7) !important;
     font-family: var(--font-family);
-    font-family: var(--font-m);
     font-style: normal;
     font-weight: 700;
     line-height: 40px;
@@ -2532,7 +2515,6 @@ footer hr {
     font-size: 16px;
     color: #000;
     line-height: 22px;
-    font-family: var(--font-m); 
 }
 
 .inner_thumb_image_box_blog p {
@@ -2838,7 +2820,6 @@ footer hr {
     position: relative;
     font-size: 70px; 
     font-family: var(--font);
-    font-family: var(--font-m);
     color: #000;
     text-align: center;
     display: inline-block;
@@ -2868,7 +2849,6 @@ footer hr {
 .heading-section h5 {
     font-size: 22px; 
     font-family: var(--font-family);
-    font-family: var(--font-m);
     color: #fff;
     text-align: right;
     display: inline-block;
@@ -2940,7 +2920,6 @@ footer hr {
 
 .card-service-details h3 {
     font-family: var(--font-family) !important;
-    font-family: var(--font-m) !important;
 }
 
 .our-service-section .section-divider .child-div:hover {
@@ -3249,7 +3228,6 @@ footer hr {
     position: absolute;
     font-family: var(--font-family);
     color: #e35a3c;
-    font-family: var(--font-m);
 
 }
 
@@ -3316,7 +3294,6 @@ footer hr {
     margin-top: 25px;
     color: white;
     font-family: var(--font);
-    font-family: var(--font-m);
     text-align: center;
 }
 
@@ -3463,20 +3440,10 @@ hr:not([size]) {
 }
 
 @media(max-width:1600px) {
-    .banner-content h1   {
-        line-height: 60px  ;
-        font-size: 55px ;
+    .banner-content h1 {
+        line-height: 60px;
+        font-size: 55px;
     }
-
-    .pattern-library-v2--home_hero_brand{
-        line-height: 60px  ;
-        font-size: 55px ;
-    }
-
-   
-
-
-
 
     .heading {
         font-size: 45px;
@@ -3556,7 +3523,7 @@ hr:not([size]) {
         font-size: 12px;
     }
 
-    .banner-content h1 , .pattern-library-v2--home_hero_brand {
+    .banner-content h1 {
         font-size: 45px;
         line-height: 46px;
     }
@@ -3871,7 +3838,7 @@ hr:not([size]) {
 }
 
 @media(max-width:1199px) {
-    .banner-content h1, .pattern-library-v2--home_hero_brand  {
+    .banner-content h1 {
         font-size: 34px;
         line-height: 40px;
     }
@@ -3962,7 +3929,7 @@ hr:not([size]) {
         width: 100%;
     }
 
-    .banner-content h1, .pattern-library-v2--home_hero_brand  {
+    .banner-content h1 {
         font-size: 25px;
         line-height: 34px;
     }
@@ -4240,7 +4207,7 @@ hr:not([size]) {
 }
 
 @media(max-width:768px) {
-    .banner-content h1 , .pattern-library-v2--home_hero_brand {
+    .banner-content h1 {
         font-size: 25px;
         line-height: 30px;
     }
@@ -4314,7 +4281,7 @@ hr:not([size]) {
         padding: 20px 40px;
     }
 
-    .banner-content h1 , .pattern-library-v2--home_hero_brand {
+    .banner-content h1 {
         font-size: 20px;
         line-height: 25px;
     }
@@ -4529,7 +4496,7 @@ hr:not([size]) {
 }
 
 @media(max-width:320px) {
-    .banner-content h1 , .pattern-library-v2--home_hero_brand  {
+    .banner-content h1 {
         font-size: 18px;
         line-height: 20px;
         margin-bottom: 4px;
@@ -4808,113 +4775,4 @@ span[data-testid="react-typed"] {
     font-weight: 300;
     line-height: 24px;
     text-decoration: none; */
-}
-
-
-.pattern-library-v2--home_hero_list {
-    flex-flow: column;
-    height: 82px;
-    display: flex;
-    overflow: hidden;
-}
-
-.pattern-library-v2--home_hero_brand {
-    flex: 0 0 82px;
-    height: 82px;
-    line-height: 82px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    color: var(--bg-color2);
-    text-align: center;
-    font-family: var(--font);
-    font-size: 52px;
-    font-weight: 900;
-}
-
-.pattern-library-v2--home_hero_brand.pattern-library-v2--u-text-style-h2 {
-    height: 82px;
-}
-
-[class*="home_hero_brands"] {
-    overflow: hidden;
-}
-
-[class*="home_hero_brand"] {
-    animation: brand-scroll 12.5s infinite;
-}
-
-@keyframes brand-scroll {
-  0%,
-  16% {
-    transform: translateY(0%);
-    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
-  }
-
-  20%,
-  32% {
-    transform: translateY(-100%);
-    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
-  }
-
-  36%,
-  48% {
-    transform: translateY(-200%);
-    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
-  }
-
-  52%,
-  64% {
-    transform: translateY(-300%);
-    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
-  }
-
-  68%,
-  80% {
-    transform: translateY(-400%);
-    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
-  }
-
-  84%,
-  96% {
-    transform: translateY(-500%);
-    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
-  }
-
-  99.99% {
-    transform: translateY(-600%);
-    animation-timing-function: step-end;
-  }
-
-  100% {
-    transform: translateY(0%);
-  }
-} 
-
-.workspace .swiper-wrapper {
-    justify-content: center;
-}
-
-.logo-swiper {
-  width: 100%;
-}
-
-.logo-swiper .swiper-wrapper {
-  transition-timing-function: linear !important;
-}
-
-.logo-img {
-  height: 80px;
-  width: auto;
-  object-fit: contain;
-}
-
-.pattern-library-v2--home_hero_brand{
-    font-size: 64px;
-}
-
-
-.onward-workspaces-offerings h2 {
-    font-family: var(--font-m);
 }

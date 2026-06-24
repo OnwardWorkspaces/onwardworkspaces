@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import './assets/css/style.css';
+import './assets/css/resposive.css';
 // import "./assets/scss/error.scss";
 import { Counter } from './Counter';
 import Header from './pages/components/Header';
@@ -11,10 +12,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <div className="wrapper">
-      <ToastContainer />
-      <Router />
-    </div>
+    <main id="main-content">
+      <div className="wrapper">
+        <ToastContainer />
+        <Router />
+      </div>
+    </main>
   );
 }
 

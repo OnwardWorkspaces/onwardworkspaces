@@ -249,6 +249,8 @@ function HomeBanner(props) {
     }
 
     const cropImage = (url) => {
+
+        console.log(fileType);
         setLoading(true);
         const fileData = cropperRef?.current?.cropper?.getCroppedCanvas().toDataURL();
         if (fileType == "image")
@@ -261,9 +263,9 @@ function HomeBanner(props) {
             setMedia(temp);
         }
         else
-            setLogo(fileData);
-        setCropperModal(false);
-        setLoading(false);
+            //setLogo(fileData);
+            setCropperModal(false);
+            setLoading(false);
     }
 
     const handleRemoveMedia = (i) => {

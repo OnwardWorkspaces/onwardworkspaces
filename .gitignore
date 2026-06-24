@@ -1,3 +1,5 @@
 /live/admin/static
 /live/demo/static
 /live/static
+node_modules/
+**/node_modules/
