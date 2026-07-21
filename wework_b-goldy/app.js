@@ -41,6 +41,7 @@ var contactRoutes = require("./routes/contactus");
 var solutionRoutes = require("./routes/oursolution");
 var enterpriseRoutes = require("./routes/enterprise");
 var caseRoutes = require("./routes/case");
+var imageGalleryRoutes = require("./routes/imageGallery");
 const fileUpload = require('express-fileupload');
 var authMiddlware = require('./services/middlewares/auth');
 // // Middlewares binding with routes
@@ -163,6 +164,7 @@ app.use('/contact', contactRoutes);
 app.use('/solution', solutionRoutes);
 app.use('/enterprise', enterpriseRoutes);
 app.use('/case', caseRoutes);
+app.use("/image-gallery", imageGalleryRoutes);
 app.use(function (req, res, next) {
   next(createError(404));
 });
