@@ -84,6 +84,7 @@ import IconFeather from "../docs/IconFeather";
 import City from "../pages/City";
 import Location from "../pages/Location";
 import Category from "../pages/Category";
+import Gallery from "../pages/Gallery";
 // import WorkSpaceService from "../pages/Workspace/Service";
 import StandardCategory from "../pages/StandardAmenities/Category";
 import StandService from "../pages/StandardAmenities/Service";
@@ -120,6 +121,7 @@ const protectedRoutes = [
   { path: "/city", element: <City /> },
   { path: "/location", element: <Location /> },
   { path: "/category", element: <Category /> },
+  { path: "/gallery", element: <Gallery /> },
   { path: "/clientale", element: <Clientale /> },
   { path: "/forms", element: <Forms /> },
   // { path: "/workspace/service", element: <WorkSpaceService /> },

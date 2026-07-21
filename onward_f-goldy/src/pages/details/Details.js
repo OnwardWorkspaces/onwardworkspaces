@@ -47,7 +47,7 @@ export default function Details() {
                     >
                         <SwiperSlide>
                             <div className='banner_item'>
-                                <img src={require('../../assets/images/banner-s.png')} alt='gallery' />
+                                <img src={require('../../assets/images/banner-s.jpg')} alt='gallery' />
                                 <div className='inner-banner-content top bottom'>
                                     <h1 className='heading'>Onward Berger Ahmedabad One</h1>
                                     <p className='paragraph'>
@@ -58,7 +58,7 @@ export default function Details() {
                         </SwiperSlide>
                         <SwiperSlide>
                             <div className='banner_item'>
-                                <img src={require('../../assets/images/banner-s.png')} alt='gallery' />
+                                <img src={require('../../assets/images/banner-s.jpg')} alt='gallery' />
                                 <div className='inner-banner-content top bottom'>
                                     <h1 className='heading'>Onward Berger Ahmedabad One</h1>
                                     <p className='paragraph'>
@@ -69,7 +69,7 @@ export default function Details() {
                         </SwiperSlide>
                         <SwiperSlide>
                             <div className='banner_item'>
-                                <img src={require('../../assets/images/banner-s.png')} alt='gallery' />
+                                <img src={require('../../assets/images/banner-s.jpg')} alt='gallery' />
                                 <div className='inner-banner-content top bottom'>
                                     <h1 className='heading'>Onward Berger Ahmedabad One</h1>
                                     <p className='paragraph'>
@@ -80,7 +80,7 @@ export default function Details() {
                         </SwiperSlide>
                         <SwiperSlide>
                             <div className='banner_item'>
-                                <img src={require('../../assets/images/banner-s.png')} alt='gallery' />
+                                <img src={require('../../assets/images/banner-s.jpg')} alt='gallery' />
                                 <div className='inner-banner-content top bottom'>
                                     <h1 className='heading'>Onward Berger Ahmedabad One</h1>
                                     <p className='paragraph'>
@@ -91,7 +91,7 @@ export default function Details() {
                         </SwiperSlide>
                         <SwiperSlide>
                             <div className='banner_item'>
-                                <img src={require('../../assets/images/banner-s.png')} alt='gallery' />
+                                <img src={require('../../assets/images/banner-s.jpg')} alt='gallery' />
                                 <div className='inner-banner-content top bottom'>
                                     <h1 className='heading'>Onward Berger Ahmedabad One</h1>
                                     <p className='paragraph'>
@@ -102,7 +102,7 @@ export default function Details() {
                         </SwiperSlide>
                         <SwiperSlide>
                             <div className='banner_item'>
-                                <img src={require('../../assets/images/banner-s.png')} alt='gallery' />
+                                <img src={require('../../assets/images/banner-s.jpg')} alt='gallery' />
                                 <div className='inner-banner-content top bottom'>
                                     <h1 className='heading'>Onward Berger Ahmedabad One</h1>
                                     <p className='paragraph'>

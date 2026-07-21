@@ -79,7 +79,7 @@ export default function About() {
               return (
                 <section className='about-section '>
                   <div className='about-right-section'>
-                    <img src={item?.image ? item?.image : require('../../assets/images/about.png')} alt={item?.title} />
+                    <img src={item?.image ? item?.image : require('../../assets/images/about.jpg')} alt={item?.title} />
                   </div>
                   <div className='about-left-section'>
                     <div className='header-title'>
@@ -115,7 +115,7 @@ export default function About() {
                     </div>
                   </div>
                   <div className='about-right-section'>
-                    <img src={item?.image ? item?.image : require('../../assets/images/about.png')} alt={item?.title} />
+                    <img src={item?.image ? item?.image : require('../../assets/images/about.jpg')} alt={item?.title} />
                   </div>
                 </section>
               )
@@ -131,7 +131,7 @@ export default function About() {
                 {data?.section?.length > 0 ?
                   <img src={data?.section[0]?.image} alt='vission' />
                   :
-                  <img src={require('../../assets/images/vission.png')} alt='vission' />
+                  <img src={require('../../assets/images/vission.jpg')} alt='vission' />
                 }
               </div>
             </div>
@@ -152,7 +152,7 @@ export default function About() {
                 {data?.section?.length > 1 ?
                   <img src={data?.section[1]?.image} alt='vission' />
                   :
-                  <img src={require('../../assets/images/vission.png')} alt='vission' />
+                  <img src={require('../../assets/images/vission.jpg')} alt='vission' />
                 }
               </div>
             </div>
@@ -190,7 +190,7 @@ export default function About() {
                 {data?.section?.length > 2 ?
                   <img src={data?.section[2]?.image} alt='vission' />
                   :
-                  <img src={require('../../assets/images/vission.png')} alt='vission' />
+                  <img src={require('../../assets/images/vission.jpg')} alt='vission' />
                 }
               </div>
             </div>
@@ -211,7 +211,7 @@ export default function About() {
                 {data?.section?.length > 3 ?
                   <img src={data?.section[3]?.image} alt='vission' />
                   :
-                  <img src={require('../../assets/images/vission.png')} alt='vission' />
+                  <img src={require('../../assets/images/vission.jpg')} alt='vission' />
                 }
               </div>
             </div>

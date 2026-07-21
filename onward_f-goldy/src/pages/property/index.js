@@ -159,7 +159,7 @@ export default function Property() {
                             <SwiperSlide key={index}>
                                 <div className='banner_item'>
                                     <div className='banner-img'>
-                                        <img src={item ? item : require('../../assets/images/banner-s.png')} alt='gallery' />
+                                        <img src={item ? item : require('../../assets/images/banner-s.jpg')} alt='gallery' />
                                     </div>
                                     <div className='inner-banner-content inner-banner-content-blog top bottom'>
                                         <h1 className='heading'>{data?.title}</h1>

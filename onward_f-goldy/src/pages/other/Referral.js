@@ -183,7 +183,7 @@ export default function Referral() {
                         <li>
                             <div className='seat'>
                                 <div className='img-seat-box'>
-                                    <img src={require('../../assets/images/about.png')} alt="" />
+                                    <img src={require('../../assets/images/about.jpg')} alt="" />
                                 </div>
                             </div>
                             <p>Cities</p>
@@ -191,7 +191,7 @@ export default function Referral() {
                         <li>
                             <div className='seat'>
                                 <div className='img-seat-box'>
-                                    <img src={require('../../assets/images/about.png')} alt="" />
+                                    <img src={require('../../assets/images/about.jpg')} alt="" />
                                 </div>
                             </div>
                             <p>Location</p>
@@ -199,7 +199,7 @@ export default function Referral() {
                         <li>
                             <div className='seat'>
                                 <div className='img-seat-box'>
-                                    <img src={require('../../assets/images/about.png')} alt="" />
+                                    <img src={require('../../assets/images/about.jpg')} alt="" />
                                 </div>
                             </div>
                             <p>Members</p>
@@ -207,7 +207,7 @@ export default function Referral() {
                         <li>
                             <div className='seat'>
                                 <div className='img-seat-box'>
-                                    <img src={require('../../assets/images/about.png')} alt="" />
+                                    <img src={require('../../assets/images/about.jpg')} alt="" />
                                 </div>
                             </div>
                             <p>Sq. ft</p>
@@ -215,7 +215,7 @@ export default function Referral() {
                         <li>
                             <div className='seat'>
                                 <div className='img-seat-box'>
-                                    <img src={require('../../assets/images/about.png')} alt="" />
+                                    <img src={require('../../assets/images/about.jpg')} alt="" />
                                 </div>
                             </div>
                             <p>Sq. ft</p>

@@ -158,7 +158,7 @@ export default function Property() {
                         <SwiperSlide >
                             <div className='banner_item'>
                                 <div className='banner-img'>
-                                    <img src={data?.image ? data?.image : require('../../assets/images/banner-s.png')} alt={data?.title} />
+                                    <img src={data?.image ? data?.image : require('../../assets/images/banner-s.jpg')} alt={data?.title} />
                                 </div>
                                 <div className='inner-banner-content top bottom'>
                                     <h1 className='heading'>{data?.title}</h1>

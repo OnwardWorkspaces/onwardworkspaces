@@ -127,7 +127,7 @@ export default function BlogDetail() {
             </Modal>
             <section className='inner-banner inner-banner-slider blog_detail_page'>
                 <div className='banner-img'>
-                    <img src={data?.banner ? data?.banner : require('../../assets/images/city-banner.png')} alt='city-banner' />
+                    <img src={data?.banner ? data?.banner : require('../../assets/images/city-banner.jpg')} alt='city-banner' />
                 </div>
                 <div className='inner-banner-content top bottom padding-left-right'>
                     <Row>

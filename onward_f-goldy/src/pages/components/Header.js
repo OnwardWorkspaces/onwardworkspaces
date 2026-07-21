@@ -4,6 +4,11 @@ import { Link, NavLink } from 'react-router-dom';
 import { get } from "../../helpers/helper_api";
 import { toast } from 'react-toastify';
 
+import logo150 from "../../assets/images/logo-150.webp";
+import logo300 from "../../assets/images/logo-300.webp";
+import logo600 from "../../assets/images/logo-600.webp";
+
+
 export default function Header(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [cities, setCities] = useState([]);
@@ -91,7 +96,18 @@ export default function Header(props) {
                     <div className="container-fluid">
                         <Link className="navbar-brand" to="/">
                             <div className='logo-box'>
-                                <img src={logo} alt='logo' />
+                                 {/* <img src={logo} alt='logo' /> */} 
+                                <img
+                                    src={logo300}
+                                    srcSet={`
+                                        ${logo150} 150w,
+                                        ${logo300} 300w,
+                                        ${logo600} 600w
+                                    `}
+                                    
+                                    alt="Onward Workspaces"
+                                    decoding="async"
+                                />
                             </div>
                         </Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

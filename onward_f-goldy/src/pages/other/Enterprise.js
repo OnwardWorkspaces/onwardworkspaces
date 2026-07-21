@@ -179,7 +179,7 @@ export default function Enterprise() {
                             </p>
                         </div>
                         <div className='img_section'>
-                            <img src={require('../../assets/images/vission.png')} alt='banner' />
+                            <img src={require('../../assets/images/vission.jpg')} alt='banner' />
                             <span>01</span>
 
                         </div>
@@ -196,7 +196,7 @@ export default function Enterprise() {
                 <div className='column_section'>
                     <div className='main_box bottom-box-design'>
                         <div className='img_section upr_box'>
-                            <img src={require('../../assets/images/vission.png')} alt='banner' />
+                            <img src={require('../../assets/images/vission.jpg')} alt='banner' />
                             <span>02</span>
 
                         </div>
@@ -228,7 +228,7 @@ export default function Enterprise() {
                                 </p>
                             </div>
                             <div className='img_section'>
-                                <img src={require('../../assets/images/vission.png')} alt='banner' />
+                                <img src={require('../../assets/images/vission.jpg')} alt='banner' />
                                 <span>03</span>
 
                             </div>
@@ -250,7 +250,7 @@ export default function Enterprise() {
                     <div className='column_section'>
                         <div className='main_box bottom-box-design'>
                             <div className='img_section'>
-                                <img src={require('../../assets/images/vission.png')} alt='banner' />
+                                <img src={require('../../assets/images/vission.jpg')} alt='banner' />
                                 <span>04</span>
 
                             </div>
@@ -283,7 +283,7 @@ export default function Enterprise() {
                                 </p>
                             </div>
                             <div className='img_section'>
-                                <img src={require('../../assets/images/vission.png')} alt='banner' />
+                                <img src={require('../../assets/images/vission.jpg')} alt='banner' />
                                 <span>05</span>
 
                             </div>
@@ -317,7 +317,7 @@ export default function Enterprise() {
                                         </div>
                                     </div>
                                     <div className='about-right-section'>
-                                        <img src={item?.image ? item?.image : require('../../assets/images/about.png')} alt={item?.title} />
+                                        <img src={item?.image ? item?.image : require('../../assets/images/about.jpg')} alt={item?.title} />
                                     </div>
                                 </section>
                             )
@@ -325,7 +325,7 @@ export default function Enterprise() {
                             return (
                                 <section className='about-section'>
                                     <div className='about-right-section'>
-                                        <img src={item?.image ? item?.image : require('../../assets/images/about.png')} alt={item?.title} />
+                                        <img src={item?.image ? item?.image : require('../../assets/images/about.jpg')} alt={item?.title} />
                                     </div>
                                     <div className='about-left-section'>
                                         <div className='header-title'>
@@ -476,7 +476,7 @@ export default function Enterprise() {
             {/* Customised plans */}
             {/* <section className='about-section plans'>
                 <div className='about-right-section'>
-                    <img src={require('../../assets/images/about.png')} alt={''} />
+                    <img src={require('../../assets/images/about.jpg')} alt={''} />
                 </div>
                 <div className='about-left-section'>
                     <div className='header-title'>

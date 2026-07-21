@@ -6,6 +6,14 @@ import {
     Col
 } from "reactstrap"
 import { get } from '../../helpers/helper_api';
+
+import footer_logo100 from "../../assets/images/footer_logo_100.webp";
+import footer_logo200 from "../../assets/images/footer_logo_300.webp";
+import footer_logo400 from "../../assets/images/footer_logo_600.webp";
+
+
+
+
 export default function Footer(props) {
 
     const [city, setCity] = useState([]);
@@ -62,7 +70,18 @@ export default function Footer(props) {
                     <Col lg={5}>
                         <div className='footer-content-section'>
                             <div className='footer-logo'>
-                                <img src={logo} alt='w-logo' />
+                                
+                                <img
+                                    src={logo}
+                                    srcSet={`
+                                        ${footer_logo100} 150w,
+                                        ${footer_logo200} 300w,
+                                        ${logo} 600w
+                                    `}
+                                    sizes="122px"
+                                    alt='w-logo'
+                                    decoding="async"
+                                />
                             </div>
                             <p>Established and launched in 2019, Onward Workspaces is a Delhi-based co-working space that strives to nurture innovative startups by providing them with the required support. We aim to design & develop offices that change the way people feel about coming to work, foster a culture of sharing and exchange, and bring the best out of every individual.</p>
                             <div className="">
@@ -167,7 +186,8 @@ export default function Footer(props) {
                         </Link>
                     </li>
                     <li>
-                        <a href='https://www.linkedin.com/company/onwardworkspaces/' target='_blank'>
+                        <a href='https://www.linkedin.com/company/onwardworkspaces/' target='_blank' rel="noopener noreferrer"
+    aria-label="Visit our LinkedIn page">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="Social icon" clip-path="url(#clip0_370_761)">
                                     <g id="Group">
@@ -183,8 +203,9 @@ export default function Footer(props) {
                         </a>
                     </li>
                     <li>
-                        <a href='https://www.instagram.com/onwardworkspaces/' target='_blank'>
-                            <img src={require('../../assets/images/instagram.png')} alt="instagram" />
+                        <a href='https://www.instagram.com/onwardworkspaces/' target='_blank' rel="noopener noreferrer"
+    aria-label="Visit our Instagram page">
+                            <img src={require('../../assets/images/instagram.png')} alt="instagram" width="18"  height="18" />
                         </a>
                     </li>
                 </ul>

@@ -23,7 +23,7 @@ import Loader from '../components/Loader';
 import { Helmet } from 'react-helmet';
 import ReactHtmlParser from 'react-html-parser';
 import AmenitiesSection from '../../components/AmenitiesSection';
-export default function City() {
+export default function City() { 
 
     const params = useParams();
     const navigate = useNavigate();
@@ -157,9 +157,9 @@ export default function City() {
             </Modal>
             <section className='inner-banner inner-banner-slider'>
                 {/* <div className='banner-img'>
-                    <img src={data?.image ? data?.image : require('../../assets/images/city-banner.png')} alt='city-banner' />
+                    <img src={data?.image ? data?.image : require('../../assets/images/city-banner.jpg')} alt='city-banner' />
                 </div> */}
-                <div className='inner-banner-content top inner-two-banner bottom padding-left-right' style={{ backgroundImage: `url(${data?.image ? data?.image : require('../../assets/images/city-banner.png')})` }}>
+                <div className='inner-banner-content top inner-two-banner bottom padding-left-right' style={{ backgroundImage: `url(${data?.image ? data?.image : require('../../assets/images/city-banner.jpg')})` }}>
                     <Row>
                         <Col lg={6}>
                             <div className='left-section'>

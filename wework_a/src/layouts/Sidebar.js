@@ -153,7 +153,18 @@ export default function Sidebar() {
                                 </li>
                             </ul>
                         </div>
+
+                        
                     }
+
+                    <div className="nav-group show">
+                            <ul className="nav nav-sidebar py-0">
+                                <li className="nav-item">
+                                    <NavLink to="/gallery" className="nav-link"><i className={"fa fa-camera"} style={{ fontSize: 16 }}></i> <span style={{ userSelect: 'none' }}>Gallery </span></NavLink>
+                                </li>
+                            </ul>
+                        </div>
+
 
                     {/* {checkPermission("workspaceCategory") || checkPermission("workspaceService") ?
                         <div className="nav-group show">
@@ -228,6 +239,8 @@ export default function Sidebar() {
                             </li>
                         </ul>
                     </div> */}
+
+                    
                     {checkPermission("blog") &&
                         <div className="nav-group show">
                             <div className="nav-label" onClick={toggleMenu}><i className={"fa fa-blog"} style={{ fontSize: 16, marginRight: 10 }}></i><span style={{ userSelect: 'none' }}>Blog</span></div>

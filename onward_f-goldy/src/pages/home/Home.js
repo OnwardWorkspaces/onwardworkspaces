@@ -165,7 +165,14 @@ export default function Home(props) {
                 : null}
             <div className="home-banner">
                 <div className='banner-img'>
-                    <img src={data?.home?.image ? data?.home?.image : require('../../assets/images/home-banner.png')} alt='home-banner' />
+                    <img src={data?.home?.image ? data?.home?.image : require('../../assets/images/home-banner.jpg')} alt='home-banner'
+                    
+                        fetchPriority="high"
+                        decoding="async"
+                        width="1920"
+                        height="850"
+                        
+                        />
                 </div>
                 <div className='banner-content'>
                     <div className='content-b'>

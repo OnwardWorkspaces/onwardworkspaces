@@ -143,7 +143,7 @@ export default function LocationPage(props) {
                 </ModalBody>
             </Modal>
             <section className='inner-banner inner-banner-slider'>
-                <div className='inner-banner-content inner-two-banner top bottom padding-left-right' style={{ backgroundImage: `url(${data?.length ? data[0]?.image : require('../../assets/images/city-banner.png')})` }} >
+                <div className='inner-banner-content inner-two-banner top bottom padding-left-right' style={{ backgroundImage: `url(${data?.length ? data[0]?.image : require('../../assets/images/city-banner.jpg')})` }} >
                     <Row >
                         <Col lg={6}>
                             <div className='left-section'>

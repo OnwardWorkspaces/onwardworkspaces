@@ -1,18 +1,24 @@
-import logo from './logo.svg';
+/*import logo from './logo.svg'; */
 import './App.css';
+import './assets/css/bootstrap.min.css'; 
 import './assets/css/style.css';
 import './assets/css/resposive.css';
-// import "./assets/scss/error.scss";
-import { Counter } from './Counter';
+// import "./assets/scss/error.scss"; 
+/* import { Counter } from './Counter'; */
 import Header from './pages/components/Header';
-import 'bootstrap/dist/css/bootstrap.css';
+/* import 'bootstrap/dist/css/bootstrap.css'; */
 import Router from './route/Router';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import GoogleAnalytics from './components/GoogleAnalytics';
+import PreloadFonts from './components/PreloadFonts';
 
 function App() {
   return (
+    
     <main id="main-content">
+    
+      <GoogleAnalytics />
       <div className="wrapper">
         <ToastContainer />
         <Router />

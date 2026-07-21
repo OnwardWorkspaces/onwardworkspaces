@@ -231,7 +231,7 @@ export default function OurSolutions() {
                                         </div>
                                     </div>
                                     <div className='about-right-section'>
-                                        <img src={item?.image ? item?.image : require('../../assets/images/about.png')} alt={item?.title} />
+                                        <img src={item?.image ? item?.image : require('../../assets/images/about.jpg')} alt={item?.title} />
                                     </div>
                                 </section>
                             )
@@ -239,7 +239,7 @@ export default function OurSolutions() {
                             return (
                                 <section className='about-section '>
                                     <div className='about-right-section'>
-                                        <img src={item?.image ? item?.image : require('../../assets/images/about.png')} alt={item?.title} />
+                                        <img src={item?.image ? item?.image : require('../../assets/images/about.jpg')} alt={item?.title} />
                                     </div>
                                     <div className='about-left-section'>
                                         <div className='header-title'>

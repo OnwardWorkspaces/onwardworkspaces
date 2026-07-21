@@ -63,9 +63,9 @@ export default function Banner(props) {
     <>
       <section className='inner-banner inner-banner-slider'>
         {/* <div className='banner-img'>
-          <img src={data?.image ? data?.image : require('../../../assets/images/city-banner.png')} alt='city-banner' />
+          <img src={data?.image ? data?.image : require('../../../assets/images/city-banner.jpg')} alt='city-banner' />
         </div> */}
-        <div className='inner-banner-content top inner-two-banner bottom padding-left-right' style={{ backgroundImage: `url(${data?.image ? data?.image : require('../../../assets/images/city-banner.png')})` }}>
+        <div className='inner-banner-content top inner-two-banner bottom padding-left-right' style={{ backgroundImage: `url(${data?.image ? data?.image : require('../../../assets/images/city-banner.jpg')})` }}>
           <Row>
             <Col lg={6}>
               <div className='left-section'>
