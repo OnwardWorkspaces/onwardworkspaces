@@ -301,7 +301,7 @@ function AddService(props) {
                 <CardBody>
                     <Row>
                         <Col md={10}>
-                            <CardTitle className='mb-4'><b>{currentData?._id ? 'Update Category' : 'Add New Category'}</b></CardTitle>
+                            <CardTitle className='mb-4'><b>{currentData?._id ? 'Update Gallery' : 'Add New Gallery'}</b></CardTitle>
                         </Col>
                         <Col>
                             <Button type="button" onClick={() => setIsAdd(false)} className="btn-sign" style={{ float: 'right' }}>Close</Button>
@@ -312,74 +312,74 @@ function AddService(props) {
                             <Col md={4}>
                                 <div className='mb-4'>
                                     <AvField
-                                        name="title"
-                                        placeholder="Enter category title"
-                                        label="Title"
-                                        value={currentData?.title}
+                                        name="imageTitle"
+                                        placeholder="Enter Gallery title"
+                                        label="imageTitle"
+                                        value={currentData?.imageTitle}
                                         required
                                     />
                                 </div>
                             </Col>
+                             
                             <Col md={4}>
                                 <div className='mb-4'>
                                     <AvField
-                                        name="tagline"
-                                        placeholder="Enter category tagline"
-                                        label="Tagline"
-                                        value={currentData?.tagline}
+                                        name="altText"
+                                        label="altText"
+                                        placeholder="altText"
+                                        value={currentData?.altText}
                                         required
                                     />
                                 </div>
                             </Col>
+
                             <Col md={4}>
                                 <div className='mb-4'>
                                     <AvField
-                                        name="startFrom"
-                                        label="Price Start From"
-                                        placeholder="Enter price start from"
-                                        value={currentData?.startFrom}
+                                        name="galleryCategory"
+                                        label="galleryCategory"
+                                        placeholder="galleryCategory"
+                                        value={currentData?.galleryCategory}
                                         required
                                     />
                                 </div>
                             </Col>
-                            <Col md={12}>
+
+                            <Col md={4}>
                                 <div className='mb-4'>
                                     <AvField
-                                        name="desc"
-                                        placeholder="Enter category description"
-                                        label="Description"
-                                        value={currentData?.desc}
-                                        type="textarea"
+                                        name="galleryCategory"
+                                        label="galleryCategory"
+                                        value={currentData?.galleryCategory}
+                                        type="select"
                                         required
-                                    />
+                                    >
+                                        <option value="">Select Category</option> 
+                                            <option value='HOME_PAGE'>HOME_PAGE</option>
+                                       
+                                    </AvField>
                                 </div>
                             </Col>
+
+
+
+                            
                         </Row>
-                        <div className='mb-0'>
-                            {/* <Label></Label> */}
-                            <div className='mb-0 d-flex'>
-                                <AvField
-                                    name="isCowork"
-                                    id="isCowork"
-                                    type="checkbox"
-                                    label="isCowork"
-                                    checked={isCowork}
-                                    onChange={handleisisCowork}
-                                />
-                                <Label for='isCowork' className='mx-2' style={{ userSelect: 'none' }}>isCowork</Label>
-                            </div>
-                            <div className='mb-0 d-flex'>
-                                <AvField
-                                    name="isOnward"
-                                    id="isOnward"
-                                    type="checkbox"
-                                    label="whys"
-                                    checked={isOnward}
-                                    onChange={handleisOnward}
-                                />
-                                <Label for='isOnward' className='mx-2' style={{ userSelect: 'none' }}>Why Onward</Label>
-                            </div>
-                        </div>
+
+  <Row>
+
+                        <div className='mb-0 d-flex'>
+                                                        <AvField
+                                                            name="isActive"
+                                                            id="isActive"
+                                                            type="checkbox"
+                                                            label="isActive"
+                                                            checked={isActive}
+                                                            onChange={handleisisCowork}
+                                                        />
+                                                        <Label for='isActive' className='mx-2' style={{ userSelect: 'none' }}>isActive</Label>
+                                                    </div>
+                        </Row>
                         {isOnward &&
                             <>
                                 <Row>
