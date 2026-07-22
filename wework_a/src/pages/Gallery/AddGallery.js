@@ -143,7 +143,7 @@ function AddService(props) {
                 600,
                 738,
                 "webp",
-                70,
+                100,
                 0,
                 (uri) => {
                     resolve(uri);

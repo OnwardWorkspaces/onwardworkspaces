@@ -22,7 +22,7 @@ function WorkCategory() {
     const [confirm, setConfirm] = useState(false);
     const [file, setFile] = useState(null);
     const imagePickerRef = useRef();
-
+ 
     useEffect(() => {
         if (user?.token)
             getData();
