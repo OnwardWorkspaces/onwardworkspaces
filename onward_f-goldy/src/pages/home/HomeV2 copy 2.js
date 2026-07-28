@@ -33,9 +33,6 @@ export default function HomeV2(props) {
     const swiperRef2 = useRef();
     const formRef = useRef();
     const [expandedIndexes, setExpandedIndexes] = useState([]);
-
-    const [new_gallery, setNewGallery] = useState([]);
-
     useEffect(() => {
 
         window.scrollTo(0, 0);
@@ -92,26 +89,23 @@ export default function HomeV2(props) {
                     toast.error("Something Went Wrong!");
                 });
 
-            // get home gallery
-            get("image-gallery/list")
-                .then(res => {
-                    setLoading(false);
-                    if (res?.statusCode == 200) {
-                        setNewGallery(res?.data);
-                    }
-                })
-                .catch(err => {
-                    setLoading(false);
-                    toast.error("Something Went Wrong!");
-                })
-
-
+                 // get home gallery
+                get("image-gallery/list")
+                                .then(res => {
+                                    setLoading(false);
+                                    if (res?.statusCode == 200) {
+                                        setCats(res?.data);
+                                    }
+                                })
+                                .catch(err => {
+                                    setLoading(false);
+                                    toast.error("Something Went Wrong!");
+                                })
 
         }
     }, []);
 
-    //console.log('category', cats?.length)
-    //console.log('new_gallery', new_gallery)
+    console.log('category', cats?.length)
 
     function simplifyNumber(number) {
         const suffixes = ["", "K", "M", "B", "T"]; // Add more suffixes as needed
@@ -178,7 +172,7 @@ export default function HomeV2(props) {
 
     return (
         <>
-
+           
             {data?.home?.seo ?
                 <Helmet>
                     {ReactHtmlParser(data?.home?.seo)}
@@ -187,19 +181,19 @@ export default function HomeV2(props) {
             <div className="home-banner">
                 <div className='banner-img'>
                     <img src={data?.home?.image ? data?.home?.image : require('../../assets/images/home-banner.jpg')} alt='home-banner'
-
-                        fetchPriority="high"
+                    
+                     fetchPriority="high"
                         decoding="async"
                         rel="preload"
                         width="1920"
                         height="850"
-
-
-                    />
+                        
+                        
+                        />
                 </div>
                 <div className='banner-content'>
                     <div className='content-b'>
-                        <h1>{ /* data?.home?.title */} We are Built Around<br></br>
+                        <h1>{ /* data?.home?.title */ } We are Built Around<br></br>
                             {/*
                                 data?.home?.subTitle?.length ?
                                     <ReactTyped
@@ -213,7 +207,7 @@ export default function HomeV2(props) {
 
 
                             <div class="pattern-library-v2--home_hero_list">
-
+                                 
                                 <div
                                     class="pattern-library-v2--home_hero_brand pattern-library-v2--u-text-style-h2 pattern-library-v2--u-margin-bottom-0"
                                 >
@@ -225,7 +219,7 @@ export default function HomeV2(props) {
                                     <div>Your Brand</div>
                                 </div>
 
-                                <div
+                                 <div
                                     class="pattern-library-v2--home_hero_brand pattern-library-v2--u-text-style-h2 pattern-library-v2--u-margin-bottom-0"
                                 >
                                     <div>Your People</div>
@@ -242,15 +236,15 @@ export default function HomeV2(props) {
                                     <div>Your Brand</div>
                                 </div>
 
-                                <div
+                                 <div
                                     class="pattern-library-v2--home_hero_brand pattern-library-v2--u-text-style-h2 pattern-library-v2--u-margin-bottom-0"
                                 >
                                     <div>Your People</div>
                                 </div>
 
+                                
 
-
-
+                                 
                             </div>
 
                         </h1>
@@ -290,7 +284,7 @@ export default function HomeV2(props) {
 
                     <ul>
                         <li>
-                            <h5><CountUp end="3" />+</h5>
+                             <h5><CountUp end="3" />+</h5>
                             <p>Cities</p>
                         </li>
                         <li>
@@ -302,7 +296,7 @@ export default function HomeV2(props) {
                             <p>Clients</p>
                         </li>
                         <li>
-                            <h5><CountUp end="1" /> Million</h5>
+                            <h5><CountUp end="1"/> Million</h5>
                             <p>Square feet</p>
                         </li>
                     </ul>
@@ -376,7 +370,7 @@ export default function HomeV2(props) {
                                             prevSlideMessage: "Previous slide",
                                             nextSlideMessage: "Next slide",
                                         }}
-
+                                        
                                         // navigation={true}
                                         modules={[Navigation, A11y]}
                                         className="mySwiper workspace swiper-section"
@@ -401,14 +395,14 @@ export default function HomeV2(props) {
                                     {cats?.length > 4 &&
                                         <div className='cuttom-slider-button-box'>
                                             <button onClick={() => swiperRef.current?.slidePrev()} className="swiper-button-prev" aria-label="Previous slide"
-                                                title="Previous slide">
+    title="Previous slide">
                                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M42.6978 42.72L5.25781 42.72L5.25781 5.28003L42.6978 5.28003L42.6978 42.72Z" fill="white" />
                                                     <path className='icon_svg' d="M13.9206 0H34.0326C42.7686 0 47.9766 5.208 47.9766 13.944V34.032C47.9766 42.792 42.7686 48 34.0326 48H13.9446C5.20856 48 0.00056076 42.792 0.00056076 34.056V13.944C-0.0234375 5.208 5.18456 0 13.9206 0ZM17.2806 25.272L25.7526 33.744C26.1126 34.104 26.5686 34.272 27.0246 34.272C27.4806 34.272 27.9366 34.104 28.2966 33.744C28.9926 33.048 28.9926 31.896 28.2966 31.2L21.0966 24L28.2966 16.8C28.9926 16.104 28.9926 14.952 28.2966 14.256C27.6006 13.56 26.4486 13.56 25.7526 14.256L17.2806 22.728C16.5606 23.424 16.5606 24.576 17.2806 25.272Z" fill="#5A5A5A" />
                                                 </svg>
                                             </button>
                                             <button onClick={() => swiperRef.current?.slideNext()} className="swiper-button-next" aria-label="Next slide"
-                                                title="Next slide">
+    title="Next slide">
                                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M5.30219 42.72L42.7422 42.72L42.7422 5.28003L5.30219 5.28003L5.30219 42.72Z" fill="white" />
                                                     <path className='icon_svg' d="M34.0794 0H13.9674C5.23144 0 0.0234375 5.208 0.0234375 13.944V34.032C0.0234375 42.792 5.23144 48 13.9674 48H34.0554C42.7914 48 47.9994 42.792 47.9994 34.056V13.944C48.0234 5.208 42.8154 0 34.0794 0ZM30.7194 25.272L22.2474 33.744C21.8874 34.104 21.4314 34.272 20.9754 34.272C20.5194 34.272 20.0634 34.104 19.7034 33.744C19.0074 33.048 19.0074 31.896 19.7034 31.2L26.9034 24L19.7034 16.8C19.0074 16.104 19.0074 14.952 19.7034 14.256C20.3994 13.56 21.5514 13.56 22.2474 14.256L30.7194 22.728C31.4394 23.424 31.4394 24.576 30.7194 25.272Z" fill="#5A5A5A" />
@@ -479,7 +473,7 @@ export default function HomeV2(props) {
                 : null}
             {/* PROPERTIES */}
 
-
+            
             {data?.city?.length ?
                 <section className='onward-workspaces-offerings top bottom padding-left-right' id="workspace">
                     <div className='workspaces-slider'>
@@ -492,14 +486,14 @@ export default function HomeV2(props) {
                                 <div className='row justify-content-center'>
                                     {data?.city?.map((item, index) => (
                                         <div className='col-lg-4 col-md-6'>
-                                            <Link to={`/${item.title.toLowerCase()}`} className='text-decoration-none'>
+                                            <Link  to={`/${item.title.toLowerCase()}`} className='text-decoration-none'>
                                                 <div className='slider-item'>
                                                     <div className='item-image item-category-img'>
                                                         <img src={item?.image?.length ? item?.image : require('../../assets/images/item.png')} alt={item?.title} />
                                                     </div>
                                                     <div className='card-box'>
                                                         <h6 style={{ paddingLeft: 10, paddingRight: 10 }}>{item?.title}</h6>
-
+                                                       
                                                     </div>
                                                 </div>
                                             </Link>
@@ -524,17 +518,17 @@ export default function HomeV2(props) {
                                         640: {
                                             slidesPerView: 2,
                                             spaceBetween: 10,
-                                            centeredSlides: true,
+                                             centeredSlides: true,
                                         },
                                         768: {
                                             slidesPerView: 3,
                                             spaceBetween: 10,
-                                            centeredSlides: true,
+                                             centeredSlides: true,
                                         },
                                         1024: {
-                                            slidesPerView: 3,
+                                            slidesPerView:3,
                                             spaceBetween: 10,
-                                            centeredSlides: true,
+                                             centeredSlides: true,
                                         },
                                     }}
                                     onBeforeInit={(swiper) => {
@@ -546,15 +540,15 @@ export default function HomeV2(props) {
                                 >
                                     {data?.city?.map((item, index) => (
                                         <SwiperSlide key={item?._id}>
-                                            <Link to={`/${item.title.toLowerCase()}`} className='text-decoration-none'>
+                                            <Link to={`/${item.title.toLowerCase()}`}  className='text-decoration-none'>
                                                 <div className='slider-item'>
                                                     <div className='item-image item-category-img'>
-                                                        <img src={item?.image?.length ? item?.image : require('../../assets/images/item.png')} alt={item?.title} />
+                                                        <img src={item?.image?.length ? item?.image  : require('../../assets/images/item.png')} alt={item?.title} />
                                                     </div>
                                                     <div className='card-box'>
-
+                                                         
                                                         <h6 style={{ paddingLeft: 10, paddingRight: 10 }}>{item?.title}</h6>
-
+                                                        
                                                     </div>
                                                 </div>
                                             </Link>
@@ -938,7 +932,6 @@ export default function HomeV2(props) {
                 </section>
                 : null}
             {/* Gallery */}
-
             <section className='onward-workspaces-offerings top-0 gallery_section bottom padding-left-right'>
                 <div className='workspaces-slider'>
                     <div className='heading-title'>
@@ -947,27 +940,33 @@ export default function HomeV2(props) {
                     </div>
 
                     {
-                        new_gallery?.length <= 3 ?
+                        data?.gallery?.length <= 3 ?
                             <div className='normal-design-box gallery-section-normal'>
                                 <div className='row justify-content-center gallery_slider'>
-                                    {new_gallery
-                                        ?.filter(item => item.isActive && item.image?.trim())
-                                        .map((item, index) => (
-                                            <div className='col-lg-4 col-md-6' key={index}>
-                                                <div className='gallery-item'>
-                                                    {item.image}
-                                                    <img src={item.image} alt={item?.altText || "gallery"} />
-                                                </div>
+                                    {data?.gallery?.map((item) => (
+                                        <div className='col-lg-4 col-md-6'>
+                                            <div className='gallery-item'>
+                                                <img src={item ? item : require('../../assets/images/gallery.png')} alt='gallery' />
                                             </div>
-                                        ))}
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                             :
                             <div className='slider-section'>
                                 <Swiper
+                                    // effect={'coverflow'}
                                     grabCursor={true}
                                     loop={true}
+                                    // centeredSlides={true}
                                     slidesPerView={'auto'}
+                                    // coverflowEffect={{
+                                    //     rotate: 10,
+                                    //     stretch: 0,
+                                    //     depth: -80,
+                                    //     modifier: 1,
+                                    //     slideShadows: false,
+                                    // }}
                                     autoplay={{
                                         delay: 2500,
                                         disableOnInteraction: false,
@@ -987,42 +986,45 @@ export default function HomeV2(props) {
                                         },
                                     }}
 
+                                    // navigation={true}
                                     modules={[Navigation, EffectCoverflow, Autoplay]}
                                     className="mySwiper gallery_slider swiper-section"
                                 >
-                                    {new_gallery
-                                        ?.filter(item => item.isActive && item.image?.trim())
-                                        .map((item, index) => (
-                                            <SwiperSlide key={index}>
-                                                <div className='gallery-item'>
-                                                    <img src={item.image}
-                                                        alt={item?.altText || "gallery"} />
-                                                </div>
-                                            </SwiperSlide>
-                                        ))}
+                                    {data?.gallery?.map((item) => (
+                                        <SwiperSlide>
+                                            <div className='gallery-item'>
+                                                <img src={item ? item : require('../../assets/images/gallery.png')} alt='gallery' />
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
                                 </Swiper>
-
+                                {/* <div className='cuttom-slider-button-box'>
+                            <button onClick={() => swiperRef1.current?.slidePrev()} className="swiper-button-prev">
+                                <img src={Left} alt='left' />
+                            </button>
+                            <button onClick={() => swiperRef.current?.slideNext()} className="swiper-button-next">
+                                <img src={Right} alt='right' />
+                            </button>
+                        </div> */}
                             </div>
                     }
 
                 </div>
             </section>
-
- 
             {data && data?.mediaDesc && data?.media?.length ?
-
+                
                 <MediaSectionV2 media={data?.media} mediaDesc={data?.mediaDesc} /> : null}
-
+                
             <section className='onward-workspaces-offerings top-0 gallery_section bottom padding-left-right'>
                 <div dangerouslySetInnerHTML={{ __html: data?.home?.bContent }}>
                 </div>
-            </section>
+            </section> 
             <Newsletter loading={loading} setLoading={setLoading} />
 
 
-
-
-
+ 
+            
+            
         </>
     )
 }

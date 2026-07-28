@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import DataTable from 'react-data-table-component';
 import ConfirmModal from '../../components/ConfirmModal';
 import Footer from '../../layouts/Footer';
-import AddForm from "./AddCategory";
+import AddForm from "./AddGallery";
 import * as Utils from "../../Utils";
 
 function WorkCategory() {
@@ -22,7 +22,7 @@ function WorkCategory() {
     const [confirm, setConfirm] = useState(false);
     const [file, setFile] = useState(null);
     const imagePickerRef = useRef();
-
+ 
     useEffect(() => {
         if (user?.token)
             getData();
@@ -39,7 +39,11 @@ function WorkCategory() {
             },
             {
                 name: 'Title',
-                selector: row => row.title,
+                selector: row => row.imageTitle,
+            },
+            {
+                name: 'altText',
+                selector: row => row.altText,
             },
             // {
             //     name: 'Services',
@@ -63,9 +67,7 @@ function WorkCategory() {
             },
             {
                 cell: (row) => <>
-                    {/* <Button onClick={() => props?.history.push(`/product/` + row?._id)}
-                title={"View"}
-                style={{ backgroundColor: Utils.themeColor, marginRight: 10, padding: 5, paddingLeft: 8, paddingRight: 8, border: 'none' }}><span className="mdi mdi-eye" style={{ fontSize: 20 }}></span></Button> */}
+
                     {
                         checkPermission('workspaceCategory', 'update') &&
                         <Button onClick={() => handleUpdateProj(row)}
@@ -96,8 +98,8 @@ function WorkCategory() {
     const getData = () => {
         if (!loading) {
             setLoading(true);
-           // get("category", { token: user?.token })
-            get("category", { token: user?.token })
+            // get("category", { token: user?.token })
+            get("image-gallery/list", { token: user?.token })
                 .then(res => {
                     setLoading(false);
                     if (res?.statusCode == 200) {
@@ -131,8 +133,8 @@ function WorkCategory() {
                     body = { ...body, image: uploadRes?.data };
             }
             if (currentData?._id) {
-                body = { ...body, catId: currentData?._id }
-                put("category", body)
+                body = { ...body, galleryId: currentData?._id }
+                put("image-gallery", body)
                     .then(res => {
                         setLoading(false);
                         if (res?.statusCode == 200) {
@@ -147,7 +149,7 @@ function WorkCategory() {
                         toast.error("Something Went Wrong!");
                     })
             } else {
-                post("category", body)
+                post("image-gallery", body)
                     .then(res => {
                         setLoading(false);
                         if (res?.statusCode == 200) {
@@ -176,7 +178,7 @@ function WorkCategory() {
         if (!row?.seo)
             row.seo = Utils?.dummySeo;
         setCurrentData(row);
-        setFile(row?.image);
+        //setFile(row?.image);
         setIsAdd(true);
     }
 
@@ -189,12 +191,12 @@ function WorkCategory() {
         if (!loading) {
             setLoading(true);
             let body = {
-                catId: currentData?._id,
+                galleryId: currentData?._id,
                 token: user?.token
             }
             if (currentData?.actionType == 'Status') {
                 body = { ...body, isActive: !currentData?.isActive }
-                put("category", body)
+                put("image-gallery", body)
                     .then(res => {
                         setLoading(false);
                         if (res?.statusCode == 200) {
@@ -210,7 +212,7 @@ function WorkCategory() {
                     })
             }
             if (currentData?.actionType == 'Delete') {
-                del("category", body)
+                del("image-gallery", body)
                     .then(res => {
                         setLoading(false);
                         if (res?.statusCode == 200) {
@@ -282,7 +284,7 @@ function WorkCategory() {
                                 </CardBody>
                             </Col>
                             {
-                                checkPermission('category', 'write') &&
+                                checkPermission('gallery', 'write') &&
                                 <Col md={1}>
                                     <div className='action-btn'>
                                         <Button type="button" className="btn-add" onClick={() => { setCurrentData(null); setIsAdd(true) }}><i className={'ri-add-fill'} /></Button>
@@ -319,7 +321,7 @@ function WorkCategory() {
                 }
                 <Footer />
             </div>
-           
+
         </React.Fragment>
     )
 }
