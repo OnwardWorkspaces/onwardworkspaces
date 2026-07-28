@@ -1,83 +1,106 @@
-
 const moment = require("moment");
 let Cate = require("../modal/categories"), 
     dataTypes = require("../services/dataTypes/mongodb"),
     uploadImage = require("../services/fileUpload/upload");
 const ImageGallery = require("../modal/imageGallery");
 
+// exports.imageUpload = async (req) => {
+//     try {
+//         let imagePath = null;
+
+//         if (req.files && req.files.image) {
+
+//             const uploadResult = await uploadImage.uploadImage(
+//                 req.files.image,
+//                 "gallery"
+//             );
+
+//             if (uploadResult.statusCode == 200) {
+//                 imagePath = uploadResult.url;
+
+//                 return {
+//                     data: imagePath,
+//                     error: null,
+//                     message: "SUCCESS",
+//                     statusCode: 200
+//                 };
+//             }
+//         }
+
+//         return {
+//             data: null,
+//             error: "Image file is required!",
+//             message: "FAILED",
+//             statusCode: 400
+//         };
+
+//     } catch (error) {
+//         return {
+//             data: null,
+//             error,
+//             message: "FAILED",
+//             statusCode: 500
+//         };
+//     }
+// };
 exports.imageUpload = async (req) => {
     try {
         let imagePath = null;
-
-        if (req.files && req.files.image) {
-
-            const uploadResult = await uploadImage.uploadImage(
-                req.files.image,
-                "gallery"
-            );
-
-            if (uploadResult.statusCode == 200) {
-                imagePath = uploadResult.url;
-
+        if (req.files) {
+            const uploadResult = await uploadImage.uploadImage(req.files?.image, "imagegallery");
+            console.log('response from bucket', uploadResult);
+            if (uploadResult && uploadResult?.statusCode == 200) {
+                imagePath = uploadResult?.url;
                 return {
                     data: imagePath,
                     error: null,
                     message: "SUCCESS",
                     statusCode: 200
-                };
+                }
+            }
+        } else {
+            return {
+                data: null,
+                error: "Image file is required!",
+                message: "FAILED",
+                statusCode: 400
             }
         }
-
-        return {
-            data: null,
-            error: "Image file is required!",
-            message: "FAILED",
-            statusCode: 400
-        };
-
     } catch (error) {
         return {
             data: null,
-            error,
+            error: error,
             message: "FAILED",
             statusCode: 500
-        };
+        }
     }
 };
-
 exports.addData = async (req) => {
     try {
-
-        let image = "";
-
-        if (req.files && req.files.image) {
-
-            let upload = await exports.imageUpload(req);
-
-            if (upload.statusCode != 200)
-                return upload;
-
-            image = upload.data;
-        }
-
-        let gallery = new ImageGallery({
-
-            image,
+        let dataExists = await ImageGallery.findOne({
             imageTitle: req.body.imageTitle,
-            altText: req.body.altText,
-            galleryCategory: req.body.galleryCategory,
-            isActive: req.body.isActive ?? true
-
+            isDeleted: false
         });
 
-        let saveData = await gallery.save();
+        if (dataExists) {
+            return {
+                data: null,
+                error: "Image with this title already exists!",
+                message: "FAILED",
+                statusCode: 208
+            };
+        }
+
+        var gallery = new ImageGallery(req.body);
+
+        let saveGallery = await gallery.save();
 
         return {
-            data: saveData,
+            data: saveGallery,
             error: null,
-            message: "Gallery Added Successfully.",
+            message: "Image Gallery Added successfully.",
             statusCode: 200
-        };
+        }; 
 
     } catch (error) {
         console.log("Gallery Add Error:", error);
@@ -93,10 +116,10 @@ exports.addData = async (req) => {
 exports.getData = async () => {
 
     try {
-
+            
         let records = await ImageGallery.find({
-            isDeleted: false,
-            isActive: true
+            isDeleted: false
+            //isActive: true
         }).sort({ createdAt: -1 });
 
         return {

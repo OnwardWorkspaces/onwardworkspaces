@@ -5,6 +5,11 @@ const imageGallerySchema = new mongoose.Schema(
     image: { type: String, default: "" },
     imageTitle: { type: String, required: true },
     altText: { type: String, default: "" },
+    sequence: {
+        type: Number,
+        required: true,
+        default: 1
+    },
     galleryCategory: {
         type: String,
         required: true,
@@ -17,9 +22,10 @@ const imageGallerySchema = new mongoose.Schema(
     isDeleted: {
         type: Boolean,
         default: false
-    },
-    createdAt: Date,
-    updatedAt: Date
+    }, 
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
+     
 }
 );
 
