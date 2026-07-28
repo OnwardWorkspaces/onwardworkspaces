@@ -51,14 +51,20 @@ function toLead(data) {
   const company = pick(data, ['company', 'company_name', 'organization', 'org']);
   const source = pick(data, ['lead_source', 'source', 'utm_source']);
   const description = pick(data, ['message', 'description', 'notes', 'comments']);
+  const city = pick(data, ['city', 'city_preferred']);
 
   if (firstName) lead.First_Name = firstName;
   lead.Last_Name = lastName || firstName || email || 'Website Lead';
   if (email) lead.Email = email;
-  if (phone) lead.Phone = phone;
+  if (phone) {
+    lead.Phone = phone;
+    lead.Mobile = phone;
+    lead.Contact_Number_1 = phone;
+  }
   lead.Company = company || 'Unknown';
   lead.Lead_Source = source || 'Website';
   if (description) lead.Description = description;
+  if (city) lead.City_Preferred = city;
 
   return lead;
 }
@@ -70,7 +76,6 @@ async function createLead(data) {
 
   const token = await getAccessToken();
   const lead = toLead(data);
-
   const res = await fetch(`${API_DOMAIN}/crm/v2/Leads`, {
     method: 'POST',
     headers: {
@@ -80,7 +85,6 @@ async function createLead(data) {
     body: JSON.stringify({ data: [lead] }),
   });
   const body = await res.json();
-
   const record = body?.data?.[0];
   if (!res.ok || record?.status !== 'success') {
     throw new Error(`Zoho lead create failed: ${JSON.stringify(body)}`);
