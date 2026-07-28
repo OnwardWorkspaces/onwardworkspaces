@@ -4,7 +4,8 @@ let Contact = require("../modal/contactus"),
     Testi = require("../modal/testimonial"),
     dataTypes = require("../services/dataTypes/mongodb"),
     sendingMail = require("../services/mail/mail"),
-    uploadImage = require("../services/fileUpload/upload");
+    uploadImage = require("../services/fileUpload/upload"),
+    zoho = require("../services/zoho/zoho");
 
 exports.getDataByAdmin = async (req) => {
     try {
@@ -138,7 +139,6 @@ exports.addData = async (req) => {
 
 exports.addFormData = async (req) => {
     try {
-        // console.log("req on contact form", req?.body);
         var dataToSave = new ContactForm(req.body)
         saveData = await dataToSave.save();
         let mailData = {
@@ -147,8 +147,34 @@ exports.addFormData = async (req) => {
             subject: "New Lead form submition",
             type: "lead"
         }
-        const mailResult = await sendingMail.sendMail(mailData);
-        console.log("mail result", mailResult);
+
+        // Extract flat fields from form array for Zoho
+        let zohoData = {};
+        req?.body?.form?.forEach(item => {
+            const key = item?.title?.toLowerCase();
+            if (key?.includes("name")) zohoData.name = item?.value;
+            else if (key?.includes("email") || key?.includes("mail")) zohoData.email = item?.value;
+            else if (key?.includes("mobile") || key?.includes("phone") || key?.includes("contact")) zohoData.mobile = item?.value;
+            else if (key?.includes("message") || key?.includes("comment") || key?.includes("note")) zohoData.message = item?.value;
+        });
+
+        const [mailResult, zohoResult] = await Promise.allSettled([
+            sendingMail.sendMail(mailData),
+            zoho.createLead(zohoData),
+        ]);
+
+        if (mailResult.status === 'fulfilled') {
+            console.log("mail result", mailResult.value);
+        } else {
+            console.error("Mail send failed:", mailResult.reason);
+        }
+
+        if (zohoResult.status === 'fulfilled') {
+            console.log("Zoho lead created:", zohoResult.value.id);
+        } else {
+            console.error("Zoho lead failed:", zohoResult.reason);
+        }
+
         return {
             data: saveData,
             error: null,

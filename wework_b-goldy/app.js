@@ -38,6 +38,7 @@ var brokerRoutes = require("./routes/broker");
 var fromRoutes = require("./routes/form");
 var landingRoutes = require("./routes/landing");
 var contactRoutes = require("./routes/contactus");
+var enquiryRoutes = require("./routes/enquiry");
 var solutionRoutes = require("./routes/oursolution");
 var enterpriseRoutes = require("./routes/enterprise");
 var caseRoutes = require("./routes/case");
@@ -165,6 +166,7 @@ app.use('/solution', solutionRoutes);
 app.use('/enterprise', enterpriseRoutes);
 app.use('/case', caseRoutes);
 app.use("/image-gallery", imageGalleryRoutes);
+app.use('/enquiry', enquiryRoutes);
 app.use(function (req, res, next) {
   next(createError(404));
 });
@@ -183,7 +185,10 @@ app.use(function (err, req, res, next) {
 // app.use(passport.initialize());
 // mongoose.connect(`mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DB}?authSource=admin`, {
 // allowDiskUse : true,
-mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_CLUSTER}.mongodb.net/${process.env.MONGODB_DB}?retryWrites=true&w=majority`, {
+const mongoURI = process.env.MONGODB_LOCAL === 'true'
+  ? `mongodb://localhost:27017/${process.env.MONGODB_DB}`
+  : `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_CLUSTER}.mongodb.net/${process.env.MONGODB_DB}?retryWrites=true&w=majority`;
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
