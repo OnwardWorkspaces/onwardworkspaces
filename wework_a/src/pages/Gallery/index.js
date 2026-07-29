@@ -30,6 +30,7 @@ function WorkCategory() {
 
     useEffect(() => {
         setColumns([
+            
             {
                 name: "Image",
                 cell: (row) => <>
@@ -84,6 +85,20 @@ function WorkCategory() {
                 name: 'Action',
                 ignoreRowClick: true,
                 maxWidth: '130px'
+            },
+
+            {
+                name: "Order",
+                cell: (row) => (
+                    <input
+                        type="number"
+                        defaultValue={row.sequence || 0}
+                        className="form-control"
+                        style={{ width: "80px" }}
+                        onBlur={(e) => handleOrderChange(row, e.target.value)}
+                    />
+                ),
+                maxWidth: "120px"
             },
         ])
     }, [data]);
@@ -255,6 +270,28 @@ function WorkCategory() {
 
         }
     }
+
+
+    const handleOrderChange = (row, value) => {
+        put("image-gallery", {
+            galleryId: row._id,
+            sequence: Number(value),
+            token: user?.token
+        })
+        .then(res => {
+            if (res?.statusCode === 200) {
+                toast.success("Order updated");
+                getData(); // Refresh list
+            } else {
+                toast.error(res?.error);
+            }
+        })
+        .catch(() => {
+            toast.error("Something went wrong!");
+        });
+    };
+
+
 
     return (
         <React.Fragment>

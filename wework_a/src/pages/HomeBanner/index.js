@@ -906,7 +906,7 @@ function HomeBanner(props) {
                                     </div>
                                 </Col>
                             ))}
-                            {media?.length < 5 &&
+                            {media?.length < 10 &&
                                 <Col md={3}>
                                     <div className='img-place-square' style={{ width: 250 }}>
                                         <div className='action-btn'>
