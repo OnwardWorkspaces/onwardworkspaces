@@ -120,7 +120,7 @@ exports.getData = async () => {
         let records = await ImageGallery.find({
             isDeleted: false
             //isActive: true
-        }).sort({ createdAt: -1 });
+        }).sort({ sequence: 1 });
 
         return {
             data: records,
@@ -173,12 +173,23 @@ exports.updateData = async (req) => {
     try {
 
         let updateObj = {
-            imageTitle: req.body.imageTitle,
-            altText: req.body.altText,
-            galleryCategory: req.body.galleryCategory,
-            isActive: req.body.isActive,
             updatedAt: Date.now()
         };
+
+        if (req.body.imageTitle !== undefined)
+            updateObj.imageTitle = req.body.imageTitle;
+
+        if (req.body.altText !== undefined)
+            updateObj.altText = req.body.altText;
+
+        if (req.body.galleryCategory !== undefined)
+            updateObj.galleryCategory = req.body.galleryCategory;
+
+        if (req.body.isActive !== undefined)
+            updateObj.isActive = req.body.isActive;
+
+        if (req.body.sequence !== undefined)
+            updateObj.sequence = req.body.sequence;
 
         if (req.files && req.files.image) {
 
