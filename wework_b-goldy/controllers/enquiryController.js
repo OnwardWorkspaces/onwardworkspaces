@@ -51,24 +51,23 @@ exports.addData = async (req) => {
             zoho.createLead({ name, email, mobile, message }),
         ]);
 
-        if (mailResult.status === 'fulfilled') {
-            console.log("mail result", mailResult.value);
-        } else {
-            console.error("Mail send failed:", mailResult.reason);
-        }
+        const zoho = zohoResult.status === 'fulfilled'
+            ? zohoResult.value
+            : { success: false, id: null, logs: [], error: String(zohoResult.reason) };
 
-        if (zohoResult.status === 'fulfilled') {
-            console.log("Zoho lead created:", zohoResult.value.id);
-            await Enquiry.updateOne({ _id: saved._id }, { zohoLeadId: zohoResult.value.id });
-        } else {
-            console.error("Zoho lead failed:", zohoResult.reason);
+        if (zoho.success && zoho.id) {
+            await Enquiry.updateOne({ _id: saved._id }, { zohoLeadId: zoho.id });
         }
 
         return {
             data: {
                 mail: mailResult.status,
-                zoho: zohoResult.status,
-                zohoLeadId: zohoResult.status === 'fulfilled' ? zohoResult.value.id : null
+                zoho: {
+                    success: zoho.success,
+                    leadId: zoho.id || null,
+                    error: zoho.error || null,
+                    logs: zoho.logs || []
+                }
             },
             error: null,
             message: "Enquiry Sent.",

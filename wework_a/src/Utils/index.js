@@ -5,7 +5,7 @@ export const themeColor = "#603813";
 // export const API_URL = "http://192.168.218.231:8082/";
 // export const API_URL = "http://3.108.12.59:8082/";
 // export const API_URL = "https://onwardworkspaces.com:8083/";
-export const API_URL = "https://onwardworkspaces.com:8083/";
+export const API_URL = "http://localhost:8082/";
 
 export const dummySeo = `<title>Onward Workspace</title>
 <meta name="description" content="">

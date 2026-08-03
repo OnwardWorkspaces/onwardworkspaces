@@ -3,14 +3,13 @@ const API_DOMAIN = process.env.ZOHO_API_DOMAIN || 'https://www.zohoapis.com';
 
 let cachedToken = null;
 
-async function getAccessToken() {
+async function getAccessToken(logs) {
   if (cachedToken && Date.now() < cachedToken.expiresAt) {
-    console.log('[ZOHO] Using cached access token (expires in',
-      Math.round((cachedToken.expiresAt - Date.now()) / 1000), 's)');
+    logs.push(`[ZOHO] Using cached access token (expires in ${Math.round((cachedToken.expiresAt - Date.now()) / 1000)}s)`);
     return cachedToken.accessToken;
   }
 
-  console.log('[ZOHO] Refreshing access token via', ACCOUNTS_URL);
+  logs.push(`[ZOHO] Refreshing access token via ${ACCOUNTS_URL}`);
   const params = new URLSearchParams({
     refresh_token: process.env.ZOHO_REFRESH_TOKEN,
     client_id: process.env.ZOHO_CLIENT_ID,
@@ -24,7 +23,7 @@ async function getAccessToken() {
   const body = await res.json();
 
   if (!res.ok || !body.access_token) {
-    console.error('[ZOHO] Token refresh FAILED:', res.status, JSON.stringify(body));
+    logs.push(`[ZOHO] Token refresh FAILED: ${res.status} ${JSON.stringify(body)}`);
     throw new Error(`Zoho token refresh failed: ${JSON.stringify(body)}`);
   }
 
@@ -32,7 +31,7 @@ async function getAccessToken() {
     accessToken: body.access_token,
     expiresAt: Date.now() + (body.expires_in - 60) * 1000,
   };
-  console.log('[ZOHO] Token refreshed OK (valid', body.expires_in, 's)');
+  logs.push(`[ZOHO] Token refreshed OK (valid ${body.expires_in}s)`);
   return cachedToken.accessToken;
 }
 
@@ -74,34 +73,42 @@ function toLead(data) {
   return lead;
 }
 
+// Returns { success, id, lead, logs } and never throws — the caller can surface
+// `logs` in the API response so the whole Zoho flow is visible from the frontend.
 async function createLead(data) {
-  if (!data || typeof data !== 'object' || Array.isArray(data)) {
-    throw new Error('Payload must be a JSON object');
-  }
+  const logs = [];
+  try {
+    if (!data || typeof data !== 'object' || Array.isArray(data)) {
+      throw new Error('Payload must be a JSON object');
+    }
 
-  console.log('[ZOHO] createLead called with raw data:', JSON.stringify(data));
-  const token = await getAccessToken();
-  const lead = toLead(data);
-  console.log('[ZOHO] Mapped lead payload ->', JSON.stringify(lead));
-  console.log('[ZOHO] POST', `${API_DOMAIN}/crm/v2/Leads`);
-  const res = await fetch(`${API_DOMAIN}/crm/v2/Leads`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Zoho-oauthtoken ${token}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ data: [lead] }),
-  });
-  const body = await res.json();
-  console.log('[ZOHO] Response status', res.status, '- body:', JSON.stringify(body));
-  const record = body?.data?.[0];
-  if (!res.ok || record?.status !== 'success') {
-    console.error('[ZOHO] Lead create FAILED:', JSON.stringify(body));
-    throw new Error(`Zoho lead create failed: ${JSON.stringify(body)}`);
-  }
+    logs.push(`[ZOHO] createLead called with raw data: ${JSON.stringify(data)}`);
+    const token = await getAccessToken(logs);
+    const lead = toLead(data);
+    logs.push(`[ZOHO] Mapped lead payload -> ${JSON.stringify(lead)}`);
+    logs.push(`[ZOHO] POST ${API_DOMAIN}/crm/v2/Leads`);
+    const res = await fetch(`${API_DOMAIN}/crm/v2/Leads`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Zoho-oauthtoken ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ data: [lead] }),
+    });
+    const body = await res.json();
+    logs.push(`[ZOHO] Response status ${res.status} - body: ${JSON.stringify(body)}`);
+    const record = body?.data?.[0];
+    if (!res.ok || record?.status !== 'success') {
+      logs.push(`[ZOHO] Lead create FAILED: ${JSON.stringify(body)}`);
+      return { success: false, id: null, lead, logs, error: `Zoho lead create failed: ${JSON.stringify(body)}` };
+    }
 
-  console.log('[ZOHO] Lead created OK, id =', record.details?.id);
-  return { id: record.details?.id, lead };
+    logs.push(`[ZOHO] Lead created OK, id = ${record.details?.id}`);
+    return { success: true, id: record.details?.id, lead, logs };
+  } catch (error) {
+    logs.push(`[ZOHO] createLead ERROR: ${error?.message || error}`);
+    return { success: false, id: null, logs, error: error?.message || String(error) };
+  }
 }
 
 module.exports = { createLead };
