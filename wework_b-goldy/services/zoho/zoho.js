@@ -1,3 +1,4 @@
+const fetch = globalThis.fetch || require('node-fetch');
 const ACCOUNTS_URL = process.env.ZOHO_ACCOUNTS_URL || 'https://accounts.zoho.com';
 const API_DOMAIN = process.env.ZOHO_API_DOMAIN || 'https://www.zohoapis.com';
 
@@ -67,6 +68,7 @@ function toLead(data) {
   }
   lead.Company = company || 'Unknown';
   lead.Lead_Source = source || 'Website';
+  if (process.env.ZOHO_LEAD_OWNER_ID) lead.Owner = { id: process.env.ZOHO_LEAD_OWNER_ID };
   if (description) lead.Description = description;
   if (city) lead.City_Preferred = city;
 
