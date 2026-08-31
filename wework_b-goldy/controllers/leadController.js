@@ -76,17 +76,17 @@ exports.addData = async (req) => {
             zoho.createLead(zohoData),
         ]);
 
-        const zoho = zohoResult.status === 'fulfilled'
+        const zohoLead = zohoResult.status === 'fulfilled'
             ? zohoResult.value
             : { success: false, id: null, logs: [], error: String(zohoResult.reason) };
 
         return {
             data: saveUser,
             zoho: {
-                success: zoho.success,
-                leadId: zoho.id || null,
-                error: zoho.error || null,
-                logs: zoho.logs || []
+                success: zohoLead.success,
+                leadId: zohoLead.id || null,
+                error: zohoLead.error || null,
+                logs: zohoLead.logs || []
             },
             error: null,
             message: "Enquiry Sent.",
