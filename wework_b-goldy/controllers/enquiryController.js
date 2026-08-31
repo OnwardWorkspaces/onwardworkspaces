@@ -51,22 +51,22 @@ exports.addData = async (req) => {
             zoho.createLead({ name, email, mobile, message }),
         ]);
 
-        const zoho = zohoResult.status === 'fulfilled'
+        const zohoLead = zohoResult.status === 'fulfilled'
             ? zohoResult.value
             : { success: false, id: null, logs: [], error: String(zohoResult.reason) };
 
-        if (zoho.success && zoho.id) {
-            await Enquiry.updateOne({ _id: saved._id }, { zohoLeadId: zoho.id });
+        if (zohoLead.success && zohoLead.id) {
+            await Enquiry.updateOne({ _id: saved._id }, { zohoLeadId: zohoLead.id });
         }
 
         return {
             data: {
                 mail: mailResult.status,
                 zoho: {
-                    success: zoho.success,
-                    leadId: zoho.id || null,
-                    error: zoho.error || null,
-                    logs: zoho.logs || []
+                    success: zohoLead.success,
+                    leadId: zohoLead.id || null,
+                    error: zohoLead.error || null,
+                    logs: zohoLead.logs || []
                 }
             },
             error: null,
