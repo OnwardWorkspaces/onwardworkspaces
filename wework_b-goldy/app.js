@@ -187,7 +187,7 @@ app.use(function (err, req, res, next) {
 // allowDiskUse : true,
 const mongoURI = process.env.MONGODB_LOCAL === 'true'
   ? `mongodb://localhost:27017/${process.env.MONGODB_DB}`
-  : `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_CLUSTER}.mongodb.net/${process.env.MONGODB_DB}?retryWrites=true&w=majority`;
+  : `mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@ac-md9izsf-shard-00-00.k8ytzxa.mongodb.net:27017/${process.env.MONGODB_DB}?ssl=true&replicaSet=atlas-12iz46-shard-0&authSource=admin&retryWrites=true&w=majority`;
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
