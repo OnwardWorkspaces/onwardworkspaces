@@ -163,17 +163,17 @@ exports.addFormData = async (req) => {
             zoho.createLead(zohoData),
         ]);
 
-        const zoho = zohoResult.status === 'fulfilled'
+        const zohoLeadResult = zohoResult.status === 'fulfilled'
             ? zohoResult.value
             : { success: false, id: null, logs: [], error: String(zohoResult.reason) };
 
         return {
             data: saveData,
             zoho: {
-                success: zoho.success,
-                leadId: zoho.id || null,
-                error: zoho.error || null,
-                logs: zoho.logs || []
+                success: zohoLeadResult.success,
+                leadId: zohoLeadResult.id || null,
+                error: zohoLeadResult.error || null,
+                logs: zohoLeadResult.logs || []
             },
             error: null,
             message: "Submitted",

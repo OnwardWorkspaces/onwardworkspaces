@@ -78,7 +78,7 @@ export default function Router() {
     return (
         <>
             <BrowserRouter
-             basename="/"
+             basename="/demo"
             >
                 <Header headerData={headerData} setHeaderData={setHeaderData} />
                 <Suspense>

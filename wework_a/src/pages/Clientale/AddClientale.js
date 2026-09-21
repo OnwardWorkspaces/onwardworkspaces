@@ -317,7 +317,7 @@ function AddClientale(props) {
                                     </div>
                                 }
                             </Col>
-                            <Col md={6}>
+                            <Col md={4}>
                                 <div className='mb-4'>
                                     <AvField
                                         name="title"
@@ -328,6 +328,20 @@ function AddClientale(props) {
                                     />
                                 </div>
                             </Col>
+
+                            <Col md={4}>
+                                <div className='mb-4'>
+                                    <AvField
+                                        name="url"
+                                        placeholder="Enter clientale url"
+                                        label="Url"
+                                        value={currentData?.url}
+                                        required
+                                    />
+                                </div>
+                            </Col>
+
+
                         </Row>
                         {/* <div className='mb-4'>
                             <AvField
