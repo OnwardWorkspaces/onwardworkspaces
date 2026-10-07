@@ -1,0 +1,74 @@
+
+@font-face {
+    font-family: 'Telegraf';
+    src: url('../font/TelegrafRegular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+     font-display:swap;
+}
+
+@font-face {
+    font-family: 'Telegraf';
+    src: url('../font/telegraf_ultralight_200.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+     font-display:swap;
+}
+
+@font-face {
+    font-family: 'Telegraf';
+    src: url('../font/telegraf_ultrabold_800.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap ;
+}
+
+ 
+@font-face {
+    font-family: 'Helvetica World';
+    src: url('../font/HelveticaWorld-Bold.eot');
+    src: local('Helvetica World Bold'), local('HelveticaWorld-Bold'),
+        url('../font/HelveticaWorld-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../font/HelveticaWorld-Bold.woff2') format('woff2'),
+        url('../font/HelveticaWorld-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+     font-display:swap;
+}
+
+@font-face {
+    font-family: 'Helvetica World';
+    src: url('../font/HelveticaWorld-BoldItalic.eot');
+    src: local('Helvetica World Bold Italic'), local('HelveticaWorld-BoldItalic'),
+        url('../font/HelveticaWorld-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../font/HelveticaWorld-BoldItalic.woff2') format('woff2'),
+        url('../font/HelveticaWorld-BoldItalic.woff') format('woff'); 
+    font-weight: bold;
+    font-style: italic;
+     font-display:swap;
+}
+
+@font-face {
+    font-family: 'Helvetica World';
+    src: url('../font/HelveticaWorld-Italic.eot');
+    src: local('Helvetica World Italic'), local('HelveticaWorld-Italic'),
+        url('../font/HelveticaWorld-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../font/HelveticaWorld-Italic.woff2') format('woff2'),
+        url('../font/HelveticaWorld-Italic.woff') format('woff'); 
+    font-weight: normal;
+    font-style: italic;
+     font-display:swap;
+}
+
+@font-face {
+    font-family: 'Helvetica World';
+    src: url('../font/HelveticaWorld-Regular.eot');
+    src: local('Helvetica World'), local('HelveticaWorld-Regular'),
+        url('../font/HelveticaWorld-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../font/HelveticaWorld-Regular.woff2') format('woff2'),
+        url('../font/HelveticaWorld-Regular.woff') format('woff'), ;
+    font-weight: normal;
+    font-style: normal;
+     font-display:swap;
+}
+

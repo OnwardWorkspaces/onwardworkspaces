@@ -1,24 +1,55 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Images
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+
+    # CSS
+    ExpiresByType text/css "access plus 1 year"
+
+    # JavaScript
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+
+    # Fonts
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+
+    # JSON
+    ExpiresByType application/json "access plus 1 day"
 </IfModule>
 
-Redirect 301 /okhla-phase3.php https://onwardworkspaces.com/coworking-space-in-delhi/okhla-phase-3
-Redirect 301 /mohanestate.php https://onwardworkspaces.com/delhi/mohan-estate
-Redirect 301 /about.php https://onwardworkspaces.com/about
-Redirect 301 /okhla.php https://onwardworkspaces.com/delhi/okhla-phase-2
-Redirect 301 /services.php https://onwardworkspaces.com/our-solutions
-Redirect 301 /noida.php https://onwardworkspaces.com/noida
-Redirect 301 /contact-us.php https://onwardworkspaces.com/contact
-Redirect 301 /coworking-space-delhi.php https://onwardworkspaces.com/delhi
-Redirect 301 /how-meeting-room-drives-innovation-and-brainstorming-sessions.php https://onwardworkspaces.com/blog/how-meeting-room-drives-innovation-and-brainstorming-sessions
-Redirect 301 /tips-and-tricks-to-rent-a-coworking-space-in-delhi.php https://onwardworkspaces.com/blog/tips-and-tricks-to-rent-a-coworking-space-in-delhi
-Redirect 301 /elevate-your-workday-with-the-best-coworking-spaces.php https://onwardworkspaces.com/blog/elevate-your-workday-with-the-best-coworking-spaces
-Redirect 301 /find-your-ideal-coworking-space-in-noida.php https://onwardworkspaces.com/blog/find-your-ideal-coworking-space-in-noida
-Redirect 301 /how-shared-office-spaces-nurtures-startups-in-delhi.php https://onwardworkspaces.com/blog/how-shared-office-spaces-nurtures-startups-in-delhi
-Redirect 301 /finding-focus-and-creativity-in-private-coworking-spaces-in-delhi.php https://onwardworkspaces.com/blog/finding-focus-and-creativity-in-private-coworking-spaces-in-delhi
+<IfModule mod_headers.c>
+    <FilesMatch "\.(js|css|png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|otf)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>
 
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirect www to non-www HTTPS
+    RewriteCond %{HTTP_HOST} ^www\.onwardworkspaces\.com$ [NC]
+    RewriteRule ^(.*)$ https://onwardworkspaces.com/$1 [R=301,L]
+
+    # Redirect HTTP to HTTPS
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^(.*)$ https://onwardworkspaces.com/$1 [R=301,L]
+
+    RewriteBase /
+
+    # React routing
+    RewriteRule ^index\.html$ - [L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.html [L]
+</IfModule>

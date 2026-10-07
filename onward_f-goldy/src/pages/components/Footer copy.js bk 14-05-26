@@ -90,7 +90,7 @@ export default function Footer(props) {
                                         <p>Sales: </p>
                                     </div>
                                     <div className='mt-1 footer-address'>
-                                        <p><Link to="tel:+919220407278">+91 92204 07278</Link> | <Link to="tel:+919910668152">+91 99106 68152</Link> <span className='mx-2'></span></p>
+                                        <p><Link to="tel:+919217304534">+91 92173 04534</Link> | <Link to="tel:+919910668152">+91 99106 68152</Link> <span className='mx-2'></span></p>
                                     </div>
                                 </div>
                             </div>

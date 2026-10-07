@@ -1,60 +1,36 @@
 
 require('dotenv').config({ path: './../../.env' })
-var nodemailer = require('nodemailer');
-const { google } = require("googleapis");
-const OAuth2 = google.auth.OAuth2;
-var smtpTransport = require('nodemailer-smtp-transport');
-var handlebars = require('handlebars');
-var fs = require('fs');
-const credentials = require('./credentials2.json');
 
-const refresh_token = "1//04N64bSJ1-jBdCgYIARAAGAQSNwF-L9IrB54KkOzYRKuIhOEidZvK1UiP2GG5ufnuilUowVelYpw77k6KXoyVE0DUx_Ylquh562o";
+const BREVO_API_KEY = process.env.BREVO_API_KEY;
+const BREVO_URL = 'https://api.brevo.com/v3/smtp/email';
 
-const { client_id, client_secret, redirect_uris } = credentials.web;
+async function sendViaBrevo(mailOptions) {
+    const toList = Array.isArray(mailOptions.to) ? mailOptions.to : [mailOptions.to];
+    const payload = {
+        sender: { name: 'Onward Workspaces', email: mailOptions.from },
+        to: toList.map(email => ({ email })),
+        subject: mailOptions.subject,
+        htmlContent: mailOptions.html
+    };
 
-const oauth2Client = new OAuth2(
-    client_id, // ClientID
-    client_secret // Client Secret
-    // redirect_uris // Redirect URL
-);
-
-oauth2Client.setCredentials({
-    refresh_token: refresh_token
-});
-
-var readHTMLFile = function (path, callback) {
-    fs.readFile(path, { encoding: 'utf-8' }, function (err, html) {
-        if (err) {
-            throw err;
-            callback(err);
-        }
-        else {
-            callback(null, html);
-        }
+    const res = await fetch(BREVO_URL, {
+        method: 'POST',
+        headers: {
+            'accept': 'application/json',
+            'api-key': BREVO_API_KEY,
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(payload)
     });
-};
 
-let mailTransport = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'leads@onwardworkspaces.com',
-        pass: 'lggourscsuhdjnqc'
+    const body = await res.json();
+    if (!res.ok) {
+        throw new Error(`Brevo API error ${res.status}: ${JSON.stringify(body)}`);
     }
-});
+    return body;
+}
 
-/**  TODO: GO WITH ENV VARIABLES */
-
-smtpTransport = nodemailer.createTransport(smtpTransport({
-    host: process.env.MAIL_HOST,
-    secure: process.env.MAIL_SECURE,
-    port: process.env.MAIL_PORT,
-    auth: {
-        user: process.env.MAIL_USERNAME,
-        pass: process.env.MAIL_PASSWORD
-    }
-}));
-
-/** SENDING MAIL USING NODE MAILER WITH DIFFERENT TEMPLATES */
+/** SENDING MAIL USING BREVO API WITH DIFFERENT TEMPLATES */
 exports.sendMail = async (data) => {
     try {
         const { subject, email, type } = data;
@@ -80,37 +56,37 @@ exports.sendMail = async (data) => {
                     width: 100% !important;
                     background: #f1f1f1;
                 }
-        
+
                 * {
                     -ms-text-size-adjust: 100%;
                     -webkit-text-size-adjust: 100%;
                 }
-        
+
                 div[style*="margin: 16px 0"] {
                     margin: 0 !important;
                 }
-        
+
                 table,
                 td {
                     mso-table-lspace: 0pt !important;
                     mso-table-rspace: 0pt !important;
                 }
-        
+
                 table {
                     border-spacing: 0 !important;
                     border-collapse: collapse !important;
                     table-layout: fixed !important;
                     margin: 0 auto !important;
                 }
-        
+
                 img {
                     -ms-interpolation-mode: bicubic;
                 }
-        
+
                 a {
                     text-decoration: none;
                 }
-        
+
                 *[x-apple-data-detectors],
                 .unstyle-auto-detected-links *,
                 .aBn {
@@ -123,32 +99,32 @@ exports.sendMail = async (data) => {
                     font-weight: inherit !important;
                     line-height: inherit !important;
                 }
-        
+
                 .a6S {
                     display: none !important;
                     opacity: 0.01 !important;
                 }
-        
+
                 .im {
                     color: inherit !important;
                 }
-        
+
                 img.g-img+div {
                     display: none !important;
                 }
-        
+
                 @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
                     u~div .email-container {
                         min-width: 320px !important;
                     }
                 }
-        
+
                 @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
                     u~div .email-container {
                         min-width: 375px !important;
                     }
                 }
-        
+
                 @media only screen and (min-device-width: 414px) {
                     u~div .email-container {
                         min-width: 414px !important;
@@ -159,42 +135,42 @@ exports.sendMail = async (data) => {
                 .primary {
                     background: #f3a333;
                 }
-        
+
                 .bg_white {
                     background: #fff;
                 }
-        
+
                 .bg_light {
                     background: #fafafa;
                 }
-        
+
                 .bg_white.logo img {
                     height: 50px;
                 }
-        
+
                 .bg_black {
                     background: #000000;
                 }
-        
+
                 .bg_dark {
                     background: #559A9D;
                 }
-        
+
                 .email-section {
                     padding: 20px 20px;
                 }
-        
+
                 /*BUTTON*/
                 .btn {
                     padding: 10px 15px;
                 }
-        
+
                 .btn.btn-primary {
                     border-radius: 30px;
                     background: #f3a333;
                     color: #ffffff;
                 }
-        
+
                 h1,
                 h2,
                 h3,
@@ -205,7 +181,7 @@ exports.sendMail = async (data) => {
                     color: #000000;
                     margin-top: 0;
                 }
-        
+
                 body {
                     font-family: 'Montserrat', sans-serif;
                     font-weight: 400;
@@ -213,15 +189,15 @@ exports.sendMail = async (data) => {
                     line-height: 1.8;
                     color: rgba(0, 0, 0, .4);
                 }
-        
+
                 a {
                     color: #f3a333;
                 }
-        
+
                 .logo h1 {
                     margin: 0;
                 }
-        
+
                 .logo h1 a {
                     color: #000;
                     font-size: 20px;
@@ -229,28 +205,28 @@ exports.sendMail = async (data) => {
                     text-transform: uppercase;
                     font-family: 'Montserrat', sans-serif;
                 }
-        
+
                 .hero {
                     position: relative;
                 }
-        
+
                 .hero .text {
                     color: rgba(255, 255, 255, .8);
                 }
-        
+
                 .hero .text h2 {
                     color: #ffffff;
                     font-size: 30px;
                     margin-bottom: 0;
                 }
-        
+
                 .heading-section h2 {
                     color: #000000;
                     font-size: 28px;
                     margin-top: 0;
                     line-height: 1.4;
                 }
-        
+
                 .heading-section .subheading {
                     margin-bottom: 20px !important;
                     display: inline-block;
@@ -260,7 +236,7 @@ exports.sendMail = async (data) => {
                     color: rgba(0, 0, 0, .4);
                     position: relative;
                 }
-        
+
                 .heading-section .subheading::after {
                     position: absolute;
                     left: 0;
@@ -272,21 +248,21 @@ exports.sendMail = async (data) => {
                     background: #17CAD0;
                     margin: 0 auto;
                 }
-        
+
                 .heading-section-white {
                     color: rgba(255, 255, 255, .8);
                 }
-        
+
                 .heading-section-white h2 {
                     font-size: 28px;
                     line-height: 1;
                     padding-bottom: 0;
                 }
-        
+
                 .heading-section-white h2 {
                     color: #ffffff;
                 }
-        
+
                 .heading-section-white .subheading {
                     margin-bottom: 0;
                     display: inline-block;
@@ -295,40 +271,40 @@ exports.sendMail = async (data) => {
                     letter-spacing: 2px;
                     color: #fff;
                 }
-        
+
                 .icon {
                     text-align: center;
                 }
-        
+
                 .text-services {
                     padding: 10px 10px 0;
                     text-align: center;
                 }
-        
+
                 .text-services h3 {
                     font-size: 20px;
                 }
-        
+
                 .text-services .meta {
                     text-transform: uppercase;
                     font-size: 14px;
                 }
-        
+
                 .text-testimony .name {
                     margin: 0;
                 }
-        
+
                 .text-testimony .position {
                     color: rgba(0, 0, 0, .3);
-        
+
                 }
-        
+
                 .img {
                     width: 100%;
                     height: auto;
                     position: relative;
                 }
-        
+
                 .img .icon {
                     position: absolute;
                     top: 50%;
@@ -337,7 +313,7 @@ exports.sendMail = async (data) => {
                     bottom: 0;
                     margin-top: -25px;
                 }
-        
+
                 .img .icon a {
                     display: block;
                     width: 60px;
@@ -346,54 +322,54 @@ exports.sendMail = async (data) => {
                     left: 50%;
                     margin-left: -25px;
                 }
-        
+
                 .counter-text {
                     text-align: center;
                 }
-        
+
                 .counter-text .num {
                     display: block;
                     color: #ffffff;
                     font-size: 34px;
                     font-weight: 700;
                 }
-        
+
                 .counter-text .name {
                     display: block;
                     color: rgba(255, 255, 255, .9);
                     font-size: 13px;
                 }
-        
+
                 .footer {
                     color: rgba(255, 255, 255, 1);
-        
+
                 }
-        
+
                 .footer .heading {
                     color: #ffffff;
                     font-size: 20px;
                 }
-        
+
                 .footer ul {
                     margin: 0;
                     padding: 0;
                 }
-        
+
                 .footer ul li {
                     list-style: none;
                     margin-bottom: 10px;
                 }
-        
+
                 .footer ul li a {
                     color: rgba(255, 255, 255, 1);
                 }
-        
+
                 @media screen and (max-width: 500px) {
-        
+
                     .icon {
                         text-align: left;
                     }
-        
+
                     .text-services {
                         padding-left: 0;
                         padding-right: 20px;
@@ -484,20 +460,20 @@ exports.sendMail = async (data) => {
             </center>
         </body>
         </html>`;
-        // console.log("mails", process.env.MAIL_FROM)
         const mailOptions = {
-            from: 'leads@onwardworkspaces.com',
-            // to: email,
-            // to: 'abhisekgoldy14@gmail.com',
+            from: 'mannat@onwardworkspaces.com',
             to: ['leads@onwardworkspaces.com', "suvratjain@onwardworkspaces.com", "performance@onwardworkspaces.com"],
             subject: subject,
             html: html
         };
-        const result = await mailTransport.sendMail(mailOptions);
+        const result = await Promise.race([
+            sendViaBrevo(mailOptions),
+            new Promise((_, reject) => setTimeout(() => reject(new Error("Mail timeout after 15s")), 15000))
+        ]);
         console.log('sending email', result);
         return result;
     } catch (error) {
+        console.log('MAIL ERROR:', error?.message || error);
         return error;
     }
 }
-

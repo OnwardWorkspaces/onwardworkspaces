@@ -1,31 +1,41 @@
+# https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: https://www.onwardworkspaces.com/#workspace
-Disallow: https://www.onwardworkspaces.com/partnerships
-Disallow: https://www.onwardworkspaces.com/broker
-Disallow: https://www.onwardworkspaces.com/careers
-Disallow: https://www.onwardworkspaces.com/Referral
-Disallow: https://www.onwardworkspaces.com/category/managed-office-space
-Disallow: https://www.onwardworkspaces.com/offices/managed-office-space-in-delhi
-Disallow: https://www.onwardworkspaces.com/category/coworking
-Disallow: https://www.onwardworkspaces.com/category/virtual-office
-Disallow: https://www.onwardworkspaces.com/offices/virtual-office-in-delhi
-Disallow: https://www.onwardworkspaces.com/category/private-suites
-Disallow: https://www.onwardworkspaces.com/category/private-cabins
-Disallow: https://www.onwardworkspaces.com/category/on-demand
-Disallow: https://www.onwardworkspaces.com/category/managed-office-space-delhi
-Disallow: https://www.onwardworkspaces.com/category/managed-office-space-noida
-Disallow: https://www.onwardworkspaces.com/offices/meeting-rooms
-Disallow: https://www.onwardworkspaces.com/category/coworking-delhi
-Disallow: https://www.onwardworkspaces.com/category/coworking-noida
-Disallow: https://www.onwardworkspaces.com/category/virtual-office-delhi
-Disallow: https://www.onwardworkspaces.com/category/virtual-office-noida
-Disallow: https://www.onwardworkspaces.com/category/private-suites-delhi
-Disallow: https://www.onwardworkspaces.com/category/private-suites-noida
-Disallow: https://www.onwardworkspaces.com/category/private-cabins-delhi
-Disallow: https://www.onwardworkspaces.com/category/private-cabins-noida
-Disallow: https://www.onwardworkspaces.com/category/on-demand-delhi
-Disallow: https://www.onwardworkspaces.com/category/on-demand-noida
+
+Disallow: /partnerships
+Disallow: /broker
+Disallow: /careers
+Disallow: /Referral
+
+Disallow: /category/managed-office-space
+Disallow: /offices/managed-office-space-in-delhi
+
+Disallow: /category/coworking
+Disallow: /category/virtual-office
+Disallow: /offices/virtual-office-in-delhi
+
+Disallow: /category/private-suites
+Disallow: /category/private-cabins
+Disallow: /category/on-demand
+
+Disallow: /category/managed-office-space-delhi
+Disallow: /category/managed-office-space-noida
+
+Disallow: /offices/meeting-rooms
+
+Disallow: /category/coworking-delhi
+Disallow: /category/coworking-noida
+
+Disallow: /category/virtual-office-delhi
+Disallow: /category/virtual-office-noida
+
+Disallow: /category/private-suites-delhi
+Disallow: /category/private-suites-noida
+
+Disallow: /category/private-cabins-delhi
+Disallow: /category/private-cabins-noida
+
+Disallow: /category/on-demand-delhi
+Disallow: /category/on-demand-noida
 
 Sitemap: https://www.onwardworkspaces.com/sitemap.xml
