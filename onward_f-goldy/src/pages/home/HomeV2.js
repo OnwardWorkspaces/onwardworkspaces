@@ -955,7 +955,6 @@ export default function HomeV2(props) {
                                         .map((item, index) => (
                                             <div className='col-lg-4 col-md-6' key={index}>
                                                 <div className='gallery-item'>
-                                                    {item.image}
                                                     <img src={item.image} alt={item?.altText || "gallery"} />
                                                 </div>
                                             </div>

@@ -46,17 +46,24 @@ const ImageGallery = require("../modal/imageGallery");
 exports.imageUpload = async (req) => {
     try {
         let imagePath = null;
-        if (req.files) {
-            const uploadResult = await uploadImage.uploadImage(req.files?.image, "imagegallery");
+        if (req.files && req.files.image) {
+            const uploadResult = await uploadImage.uploadImage(req.files.image, "gallery");
             console.log('response from bucket', uploadResult);
-            if (uploadResult && uploadResult?.statusCode == 200) {
-                imagePath = uploadResult?.url;
+            if (uploadResult && uploadResult.statusCode == 200) {
+                imagePath = uploadResult.url;
                 return {
                     data: imagePath,
                     error: null,
                     message: "SUCCESS",
                     statusCode: 200
-                }
+                };
+            } else {
+                return {
+                    data: null,
+                    error: uploadResult?.error || "Image upload failed",
+                    message: "FAILED",
+                    statusCode: uploadResult?.statusCode || 500
+                };
             }
         } else {
             return {
@@ -64,15 +71,15 @@ exports.imageUpload = async (req) => {
                 error: "Image file is required!",
                 message: "FAILED",
                 statusCode: 400
-            }
+            };
         }
     } catch (error) {
         return {
             data: null,
-            error: error,
+            error: error?.message || error,
             message: "FAILED",
             statusCode: 500
-        }
+        };
     }
 };
 exports.addData = async (req) => {
@@ -89,6 +96,13 @@ exports.addData = async (req) => {
                 message: "FAILED",
                 statusCode: 208
             };
+        }
+
+        if (req.files && req.files.image) {
+            let upload = await exports.imageUpload(req);
+            if (upload.statusCode == 200) {
+                req.body.image = upload.data;
+            }
         }
 
         var gallery = new ImageGallery(req.body);
@@ -190,6 +204,9 @@ exports.updateData = async (req) => {
 
         if (req.body.sequence !== undefined)
             updateObj.sequence = req.body.sequence;
+
+        if (req.body.image !== undefined)
+            updateObj.image = req.body.image;
 
         if (req.files && req.files.image) {
 
