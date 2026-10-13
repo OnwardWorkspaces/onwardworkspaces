@@ -5,6 +5,10 @@ const BREVO_API_KEY = process.env.BREVO_API_KEY;
 const BREVO_URL = 'https://api.brevo.com/v3/smtp/email';
 
 async function sendViaBrevo(mailOptions) {
+    const apiKey = process.env.BREVO_API_KEY || BREVO_API_KEY;
+    if (!apiKey) {
+        throw new Error("BREVO_API_KEY is not defined in environment variables");
+    }
     const toList = Array.isArray(mailOptions.to) ? mailOptions.to : [mailOptions.to];
     const payload = {
         sender: { name: 'Onward Workspaces', email: mailOptions.from },
@@ -17,7 +21,7 @@ async function sendViaBrevo(mailOptions) {
         method: 'POST',
         headers: {
             'accept': 'application/json',
-            'api-key': BREVO_API_KEY,
+            'api-key': apiKey,
             'content-type': 'application/json'
         },
         body: JSON.stringify(payload)
