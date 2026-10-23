@@ -34,17 +34,18 @@ exports.addData = async (req) => {
         let saved = await enquiry.save();
 
         let tables = [
-            { label: "Name", value: name },
-            { label: "Email", value: email },
-            { label: "Mobile", value: mobile },
-            { label: "Message", value: message },
+            { title: "Name", label: "Name", value: name || "-" },
+            { title: "Email", label: "Email", value: email || "-" },
+            { title: "Mobile", label: "Mobile", value: mobile || "-" },
+            { title: "Message", label: "Message", value: message || "-" },
         ];
         let mailData = {
             tables,
             interestedIn: from || "Enquiry",
-            subject: "New Enquiry form submission",
+            from: from || "Enquiry",
+            subject: "New Enquiry Form Submission - " + (from || "Website"),
             type: "lead"
-        }
+        };
 
         const [mailResult, zohoResult] = await Promise.allSettled([
             sendingMail.sendMail(mailData),

@@ -392,47 +392,59 @@ exports.sendMail = async (data) => {
                     <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"
                         style="margin: auto;">
                         <tr>
-                            <td class="bg_white logo" style="padding: 1em 2.5em; text-align: center">
-                                <h1><a href="#"><img src="http://demo.onwardworkspaces.com/static/media/onward_logo.015913beb03092eefaba.png" /></a></h1>
+                            <td class="bg_white logo" style="padding: 1.5em 2.5em; text-align: center;">
+                                <a href="https://onwardworkspaces.com" target="_blank"><img src="https://onwardworkspaces.com/onward_logo.png" alt="Onward Workspaces" style="height: 42px; max-width: 200px; width: auto; display: block; margin: 0 auto;" /></a>
                             </td>
                         </tr>
                         <tr>
                             <td class="bg_white">
                                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                     <tr>
-                                        <td class="bg_dark email-section" style="text-align:left;">
+                                        <td class="bg_dark email-section" style="text-align:left; background: #559A9D; padding: 20px;">
                                             <div class="heading-section heading-section-white">
-                                                <h2 style="margin-bottom: 0;font-size: 18px;">Dear Admin,</h2>
-                                                <p style="margin-top: 0;margin-bottom: 0;">Here is the new lead submition, details are given below-</p>
+                                                <h2 style="margin-bottom: 0;font-size: 18px; color: #ffffff;">Dear Admin,</h2>
+                                                <p style="margin-top: 4px;margin-bottom: 0; color: #ffffff;">Here is a new lead submission from the website. Details are given below:</p>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="bg_white email-section">
-                                            <div class="heading-section" style="text-align: left; padding: 0 0px;">
-                                                <span class="subheading" style="color: #1D0674;">Lead details-</span>
+                                        <td class="bg_white email-section" style="padding: 20px;">
+                                            <div class="heading-section" style="text-align: left; padding: 0 0 10px 0;">
+                                                <span class="subheading" style="color: #1D0674; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 1px;">Lead details:</span>
                                             </div>
                                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            ${data?.tables?.map((item) => (
-                `<tr>
-                                                    <td valign="top" width="50%" style="padding-top: 10px;">
-                                                        ${item?.label}
+                                            ${data?.tables?.map((item) => {
+                                                const label = item?.title || item?.label || item?.name || "Detail";
+                                                const val = item?.value || "-";
+                                                return `<tr>
+                                                    <td valign="top" width="45%" style="padding: 8px 10px 8px 0; font-weight: 600; color: #333333; font-size: 14px; border-bottom: 1px solid #eeeeee;">
+                                                        ${label}
                                                     </td>
-                                                    <td valign="top" width="50%" style="padding-top: 10px;">
-                                                        ${item?.value}
+                                                    <td valign="top" width="55%" style="padding: 8px 0; color: #555555; font-size: 14px; border-bottom: 1px solid #eeeeee;">
+                                                        ${val}
                                                     </td>
-                                                </tr>`
-            ))}
-                                            ${data?.interestedIn &&
-                `<tr>
-                                                    <td valign="top" width="50%" style="padding-top: 10px;">
+                                                </tr>`;
+                                            }).join('')}
+                                            ${data?.interestedIn ?
+                                                `<tr>
+                                                    <td valign="top" width="45%" style="padding: 8px 10px 8px 0; font-weight: 600; color: #333333; font-size: 14px; border-bottom: 1px solid #eeeeee;">
                                                         Interested In
                                                     </td>
-                                                    <td valign="top" width="50%" style="padding-top: 10px;">
-                                                        ${data?.interestedIn}
+                                                    <td valign="top" width="55%" style="padding: 8px 0; color: #555555; font-size: 14px; border-bottom: 1px solid #eeeeee;">
+                                                        ${data.interestedIn}
                                                     </td>
-                                                </tr>`
-                }
+                                                </tr>` : ''
+                                            }
+                                            ${data?.from ?
+                                                `<tr>
+                                                    <td valign="top" width="45%" style="padding: 8px 10px 8px 0; font-weight: 600; color: #333333; font-size: 14px; border-bottom: 1px solid #eeeeee;">
+                                                        Source Page
+                                                    </td>
+                                                    <td valign="top" width="55%" style="padding: 8px 0; color: #555555; font-size: 14px; border-bottom: 1px solid #eeeeee;">
+                                                        ${data.from}
+                                                    </td>
+                                                </tr>` : ''
+                                            }
                                             </table>
                                         </td>
                                     </tr>
@@ -466,7 +478,7 @@ exports.sendMail = async (data) => {
         </html>`;
         const mailOptions = {
             from: 'mannat@onwardworkspaces.com',
-            to: ['leads@onwardworkspaces.com', "suvratjain@onwardworkspaces.com", "performance@onwardworkspaces.com"],
+            to: ['leads@onwardworkspaces.com', "suvratjain@onwardworkspaces.com", "performance@onwardworkspaces.com", "dnegicomptech@gmail.com"],
             subject: subject,
             html: html
         };

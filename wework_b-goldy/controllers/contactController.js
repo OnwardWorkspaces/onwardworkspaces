@@ -141,12 +141,22 @@ exports.addFormData = async (req) => {
     try {
         var dataToSave = new ContactForm(req.body)
         saveData = await dataToSave.save();
+        let tables = [];
+        req?.body?.form?.forEach(element => {
+            const fieldTitle = element?.title || element?.label || "Detail";
+            tables.push({
+                title: fieldTitle,
+                label: fieldTitle,
+                value: element?.value || "-",
+            });
+        });
         let mailData = {
-            tables: req?.body?.form,
+            tables,
             interestedIn: req?.body?.interestedIn ? req?.body?.interestedIn : undefined,
-            subject: "New Lead form submition",
+            from: req?.body?.from,
+            subject: "New Contact Form Submission - " + (req?.body?.interestedIn || req?.body?.from || "Website"),
             type: "lead"
-        }
+        };
 
         // Extract flat fields from form array for Zoho
         let zohoData = {};

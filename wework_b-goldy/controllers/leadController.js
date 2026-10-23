@@ -42,31 +42,40 @@ exports.getDataAdmin = async (req) => {
 
 exports.addData = async (req) => {
     try {
-        var user = new Lead(req.body)
-        let saveUser = await user.save();
-        let tables = [];
-        req?.body?.form?.forEach(element => {
-            tables.push(
-                {
-                    label: element?.title,
-                    value: element?.value,
-                });
-        });
-        let mailData = {
-            tables,
-            interestedIn: req?.body?.interestedIn,
-            subject: "New Lead form submition",
-            type: "lead"
-        }
-
         let zohoData = {};
         req?.body?.form?.forEach(item => {
-            const key = item?.title?.toLowerCase();
+            const key = (item?.title || item?.label || item?.type || "")?.toLowerCase();
             if (key?.includes("name")) zohoData.name = item?.value;
             else if (key?.includes("email") || key?.includes("mail")) zohoData.email = item?.value;
             else if (key?.includes("mobile") || key?.includes("phone") || key?.includes("contact")) zohoData.mobile = item?.value;
             else if (key?.includes("message") || key?.includes("comment") || key?.includes("note")) zohoData.message = item?.value;
         });
+
+        var user = new Lead({
+            ...req.body,
+            name: req.body?.name || zohoData.name || "",
+            email: req.body?.email || zohoData.email || "",
+            mobile: req.body?.mobile || zohoData.mobile || "",
+            message: req.body?.message || zohoData.message || ""
+        });
+        let saveUser = await user.save();
+
+        let tables = [];
+        req?.body?.form?.forEach(element => {
+            const fieldTitle = element?.title || element?.label || "Detail";
+            tables.push({
+                title: fieldTitle,
+                label: fieldTitle,
+                value: element?.value || "-",
+            });
+        });
+        let mailData = {
+            tables,
+            interestedIn: req?.body?.interestedIn,
+            from: req?.body?.from,
+            subject: "New Lead Form Submission - " + (req?.body?.interestedIn || req?.body?.from || "Website"),
+            type: "lead"
+        };
         const from = req?.body?.from?.toLowerCase();
         if (from === "city" && req?.body?.interestedIn) zohoData.city = req.body.interestedIn;
         if (req?.body?.from) zohoData.lead_source = `Website - ${req.body.from}`;
