@@ -435,16 +435,6 @@ exports.sendMail = async (data) => {
                                                     </td>
                                                 </tr>` : ''
                                             }
-                                            ${data?.from ?
-                                                `<tr>
-                                                    <td valign="top" width="45%" style="padding: 8px 10px 8px 0; font-weight: 600; color: #333333; font-size: 14px; border-bottom: 1px solid #eeeeee;">
-                                                        Source Page
-                                                    </td>
-                                                    <td valign="top" width="55%" style="padding: 8px 0; color: #555555; font-size: 14px; border-bottom: 1px solid #eeeeee;">
-                                                        ${data.from}
-                                                    </td>
-                                                </tr>` : ''
-                                            }
                                             </table>
                                         </td>
                                     </tr>
